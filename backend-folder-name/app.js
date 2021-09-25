@@ -1,4 +1,5 @@
-const dbHelpers = require('./helpers/dbHelpers')(db);
+const db = require('./db');
+const dbHelpers = require('./db/helpers/dbHelpers')(db);
 
 var express = require('express');
 var path = require('path');
@@ -7,7 +8,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const db = require('./db');
 
 var app = express();
 
