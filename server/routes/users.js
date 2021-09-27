@@ -56,7 +56,43 @@ module.exports = ({
                 error: err.message
             }));
 
-    })
+    });
+    // router.get('/login', (req, res) => {
+    //     const userID = req.cookies.userID;
+    //     if (userID) {
+    //       res.redirect('/');
+    //     } else {
+    //       res.render('login');
+    //     }
+    //   });
+
+    router.post("/login", (req, res) => {
+        console.log(req.body);
+        res.json("user login");
+    //     const { email, password } = req.body;
+    //     let queryString = `
+    //   SELECT * FROM users
+    // `;
+    // let queryParams = [email, password];
+    //     db.query(queryString, queryParams)
+    //       .then(data => {
+    //           req.cookies = 
+    //           {
+    //             userID: data.rows[0].id,
+    //             // userEmail: data.rows[0].email,
+    //             // userPassword: data.rows[0].password
+    //           }
+    //           res.status(200);
+
+    //       })
+    //       .catch(err => {
+    //         res
+    //           .status(500)
+    //           .json({ error: err.message });
+    //       });
+      });
+    
+      
 
     return router;
 };
