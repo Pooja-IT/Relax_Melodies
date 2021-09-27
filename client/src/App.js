@@ -1,5 +1,6 @@
 import './App.css';
 import useApplicationData from './hook/useApplicationData';
+import HomePage from './components/home/HomePage';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ return (<div className="App" >
   <h1> Users </h1>
 
   <ul> {userList} </ul>
+  <HomePage />
 </div >
 );
 };
