@@ -23,9 +23,10 @@ CREATE TABLE yoga_session(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     availability BOOLEAN DEFAULT TRUE,
+    duration INTEGER NOT NULL,
+    price FLOAT,
     picture VARCHAR(255) NOT NULL
 );
-
 
 CREATE TABLE yoga_center(
     id SERIAL PRIMARY KEY NOT NULL,
@@ -39,9 +40,4 @@ CREATE TABLE yoga_position(
     name VARCHAR(255) NULL,
     video VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE booking(
-    yoga_position_id INTEGER REFERENCES yoga_position(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    yoga_session_id INTEGER REFERENCES yoga_session(id) ON UPDATE CASCADE
 );
