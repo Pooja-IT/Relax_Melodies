@@ -8,10 +8,11 @@ DROP TABLE IF EXISTS position_session CASCADE;
 CREATE TABLE users(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    number INTEGER NOT NULL,
+    number VARCHAR(45) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
 
 CREATE TABLE yoga_center(
     id SERIAL PRIMARY KEY NOT NULL,
@@ -22,18 +23,19 @@ CREATE TABLE yoga_center(
 CREATE TABLE yoga_session(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    availability BOOLEAN DEFAULT TRUE,
+    availability BOOLEAN NOT NULL,
     duration INTEGER NOT NULL,
     price FLOAT,
     picture VARCHAR(255) NOT NULL,
-    -- yoga_center_id INTEGER REFERENCES yoga_center(id) ON UPDATE CASCADE
-    FOREIGN KEY(yoga_center_id) REFERENCES yoga_center(id)
+    description TEXT NOT NULL,
+    yoga_center_id INTEGER REFERENCES yoga_center(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE booking(
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     yoga_session_id INTEGER REFERENCES yoga_session(id) ON UPDATE CASCADE,
-    date DATE NOT NULL
+    date DATE NOT NULL,
+    time VARCHAR(225) NOT NULL
 );
 
 
@@ -42,7 +44,7 @@ CREATE TABLE yoga_position(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NULL,
     video VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL
+    description TEXT NOT NULL
 );
 
 CREATE TABLE position_session(
