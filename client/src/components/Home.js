@@ -1,8 +1,9 @@
 // import Button from "../Button";
 import Slider from './Slider';
 import Map from './Map';
-import Body from './Body';
+import Service from './Service';
 import About from './About';
+import Form from './Form';
 
 export default function Home() {
 
@@ -11,7 +12,8 @@ export default function Home() {
             {/* <Button onClick={ () => {console.log("Click on More Sessions")}}>More Sessions</Button> */}
             <Slider />
             <About />
-            <Body />
+            <Service />
+            <Form />
             <Map />
         </>
     )
