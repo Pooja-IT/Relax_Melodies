@@ -17,12 +17,9 @@ const App = () => {
       dispatch
   } = useApplicationData();
   console.log("state",state);
-    // const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>
-// ));
+   
 return (<div className="App" >
-  <h1> Users </h1>
 
-  {/* <ul> {userList} </ul> */}
   <Router>
     <nav>
       <Link to="/login">Login</Link>
@@ -33,8 +30,7 @@ return (<div className="App" >
       <Route path="/register"><Register /></Route>
     </Switch>
   </Router>
-  {/* <Register/>
-  <Login/> */}
+  
 </div >
 );
 };
