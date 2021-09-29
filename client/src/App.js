@@ -5,9 +5,9 @@ import Nav from './components/Nav';
 import Slider from './components/Slider';
 import Footer from './components/Footer';
 import Map from './components/Map';
-import Body from './components/Body';
+import Service from './components/Service';
 import About from './components/About';
-
+import Form from './components/Form';
 
 const App = () => {
   const {
@@ -25,7 +25,8 @@ return (<div className="App" >
   <Nav />
   <Slider />
   <About />
-  <Body />
+  <Service />
+  <Form />
   <Map />
   <Footer />
   
