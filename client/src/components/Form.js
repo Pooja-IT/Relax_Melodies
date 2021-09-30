@@ -13,17 +13,17 @@ export default function Form() {
             <form className="row g-3" onSubmit={handleSubmit}>
                 <div className="input-forms">
                     <div className="single-form">
-                        <label for="email">Enter Name:</label>
+                        <label for="email">Name:</label>
                         <input class="form-control" type="text" name="text"  required />
                     </div>
                     <div className="single-form">
-                        <label for="mobile_number">Enter Mobile Number:</label>
-                        <input className="form-control" type="text" name="mobile_number"  required />
+                        <label for="mobile_number">Phone:</label>
+                        <input class="form-control" type="text" name="mobile_number"  required />
                     </div>
                  
                     <div className="single-form">
                         <label>Choose your preferred date:</label>
-                        <input type="date" name="party" min="2017-04-01" max="2017-04-30"/>
+                        <input class="date-form" type="date" name="date" min="2017-04-01" max="2017-04-30"/>
                     </div>
                     <div className="single-form">
                         <input type="submit" value="join now"/>

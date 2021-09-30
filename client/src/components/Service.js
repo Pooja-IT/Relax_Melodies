@@ -7,13 +7,13 @@ export default function Body() {
         <section>
           <h1 className="text">
             Services
-            <i className="fab fa-angellist"/>
+            <i class="fas fa-exclamation"></i>
           </h1>
         </section>
         
         <section className='section-one'>
           <div className="cst-card">
-            <img src="/images/session.jpg" className="card-img-top" alt=""/>
+            <img src="/images/3.jpg" className="card-img-top" alt=""/>
             <div className="card-body">
               <h5 className="card-title">Session Name</h5>
               <p className="card-text">Duration</p>
@@ -22,7 +22,7 @@ export default function Body() {
           </div>
 
           <div className="cst-card">
-            <img src="/images/session.jpg" className="card-img-top" alt=""/>
+            <img src="/images/3.jpg" className="card-img-top" alt=""/>
             <div className="card-body">
               <h5 className="card-title">Session Name</h5>
               <p className="card-text">Duration</p>
@@ -33,7 +33,7 @@ export default function Body() {
 
         <section className='section-one'>
           <div className="cst-card">
-            <img src="/images/session.jpg" className="card-img-top" alt=""/>
+            <img src="/images/6.jpg" className="card-img-top" alt=""/>
             <div className="card-body">
               <h5 className="card-title">Session Name</h5>
               <p className="card-text">Duration</p>
@@ -42,7 +42,7 @@ export default function Body() {
           </div>
 
           <div className="cst-card">
-            <img src="/images/session.jpg" className="card-img-top" alt=""/>
+            <img src="/images/6.jpg" className="card-img-top" alt=""/>
             <div className="card-body">
               <h5 className="card-title">Session Name</h5>
               <p className="card-text">Duration</p>
