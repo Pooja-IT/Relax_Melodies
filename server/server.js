@@ -75,7 +75,8 @@ app.get("/api/v1/sessions", async (req, res) => {
   try {
     const results = await db.query("SELECT * FROM yoga_session");
 
-    console.log(results);
+    console.log(results.rows);
+
     res.status(200).json({
       status: "success",
       results: results.rows.length,

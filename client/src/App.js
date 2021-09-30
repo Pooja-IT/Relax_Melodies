@@ -1,12 +1,14 @@
 // import './App.css';
 import useApplicationData from './hook/useApplicationData';
-import YogaSession from './components/YogaSession';
+import YogaSessions from './components/YogaSessions';
 import Register from './components/Register';
 import Login from './components/Login';
 
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+// import Form from './components/Form';
+import SessionDetails from './components/YogaSessions/SessionDetails';
 
 import {
   BrowserRouter as Router,
@@ -31,9 +33,10 @@ return (<div className="App" >
     <Nav />
     <Switch >
       <Route exact path="/" component={Home}/>
-      <Route path="/book-online" component={YogaSession}/>
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
+      <Route exact path="/book-online" component={YogaSessions}/>
+      <Route path="/book-online/:id" component={SessionDetails}/>
     </Switch>
     <Footer />
   </Router> 

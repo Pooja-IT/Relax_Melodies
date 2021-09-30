@@ -14,9 +14,9 @@ export default function Nav() {
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <div className="navbar-nav">
               <Link to="/" className="nav-item nav-link">Home</Link>
-              <Link to="/book-online" className="nav-item nav-link">Book-Online</Link>
-                <Link to="/login" className="nav-item nav-link">Login</Link>
-                <Link to="/register" className="nav-item nav-link">Register</Link>
+              <Link to="/book-online" className="nav-item nav-link">Book Online</Link>
+              <Link to="/login" className="nav-item nav-link">Login</Link>
+              <Link to="/register" className="nav-item nav-link">Register</Link>
             </div>
           </div>
         </nav>

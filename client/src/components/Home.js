@@ -3,7 +3,6 @@ import Slider from './Slider';
 import Map from './Map';
 import Service from './Service';
 import About from './About';
-import Form from './Form';
 
 export default function Home() {
 
@@ -13,7 +12,6 @@ export default function Home() {
             <Slider />
             <About />
             <Service />
-            <Form />
             <Map />
         </>
     )
