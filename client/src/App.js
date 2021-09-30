@@ -1,12 +1,18 @@
-import './App.css';
+// import './App.css';
 import useApplicationData from './hook/useApplicationData';
-// import Home from './components/Home';
+import YogaSession from './components/YogaSession';
+import Register from './components/Register';
+import Login from './components/Login';
+
+import Home from './components/Home';
 import Nav from './components/Nav';
-import Slider from './components/Slider';
 import Footer from './components/Footer';
-import Map from './components/Map';
-import Body from './components/Body';
-import About from './components/About';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 const App = () => {
@@ -21,18 +27,18 @@ return (<div className="App" >
   {/* <h1> Users </h1> */}
 
   {/* <ul> {userList} </ul> */}
-  {/* <Home /> */}
-  <Nav />
-  <Slider />
-  <About />
-  <Body />
-  <Map />
-  <Footer />
-  
- 
+  <Router>
+    <Nav />
+    <Switch >
+      <Route exact path="/" component={Home}/>
+      <Route path="/book-online" component={YogaSession}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
+    </Switch>
+    <Footer />
+  </Router> 
 </div >
 );
 };
-
 
 export default App;

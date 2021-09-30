@@ -16,7 +16,29 @@ $theme-colors: (
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-.col-md-8{
-    display: flex;
-    justify-content: center;
+
+.img{
+  width: 300px;
+  margin-top: 70px;
+  margin-left: 60px;
+}
+
+.yoga{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.yoga-p{
+  margin-left:20px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;
+}
+
+.about{
+  display: flex;
+  flex-direction: row;
 }
