@@ -15,18 +15,18 @@ export default function Slider() {
           </div>
          
         </div>
-        <div className="carousel-item active">
+        <div className="carousel-item">
           <img src="/images/2.jpg" className="d-block w-100" alt="..."/>
           <div className="carousel-caption d-none d-md-block">
             <h2>Open Your Mind to Mindfulness</h2>
-            <Button onClick={ () => {console.log("Click on Subscribe")}}>Subscribe</Button>
+            
           </div>
         </div>
-        <div className="carousel-item active">
+        <div className="carousel-item">
           <img src="/images/4.jpg" className="d-block w-100" alt="..."/>
           <div className="carousel-caption d-none d-md-block">
             <h2>Open Your Mind to Mindfulness</h2>
-            <Button onClick={ () => {console.log("Click on Subscribe")}}>Subscribe</Button>
+        
             
           </div>
         </div>

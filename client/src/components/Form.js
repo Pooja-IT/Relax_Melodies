@@ -5,25 +5,28 @@ import Button from "./Button";
 export default function Form() {
     return(
         <section className="session-form">
-            <h4>Choose your Session</h4>
+            <h4 className="content">Choose your Session</h4>
             <form className="row g-3">
                 <div className="input-forms">
                     <div className="single-form">
-                        <label for="email">Enter Name:</label>
+                        <label for="email">Name:</label>
                         <input class="form-control" type="text" name="text"  required />
                     </div>
                     <div className="single-form">
-                        <label for="mobile_number">Enter Mobile Number:</label>
-                        <input className="form-control" type="text" name="mobile_number"  required />
+                        <label for="mobile_number">Phone:</label>
+                        <input class="form-control" type="text" name="mobile_number"  required />
                     </div>
                     <div className="single-form">
                         <label>Choose your preferred date:</label>
-                        <input type="date" name="party" min="2017-04-01" max="2017-04-30"/>
+                        <input class="date-form" type="date" name="date" min="2017-04-01" max="2017-04-30"/>
                     </div>
                 </div>
                  
             </form>
-            <Button onClick={ () => {console.log("Click on Join Now")}}>Join Now</Button>
+            <div class="join">
+            <Button const path = '/book-online' onClick={ () => {console.log("Click on Join Now")}}>Join Now
+            </Button>
+            </div>
         </section>
     )
 }

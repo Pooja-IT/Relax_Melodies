@@ -1,5 +1,5 @@
-$primary: #05653f;
-$secondary : #ebebeb;
+$primary: #e2e956;
+$secondary : #0b0101;
 $danger:rgba(218, 12, 12, 0.767);
 $warning: #FFA500;
 $theme-colors: (
@@ -36,6 +36,8 @@ $theme-colors: (
   display: flex;
   flex-direction: column;
   padding-right: 30px;
+  padding-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .about{

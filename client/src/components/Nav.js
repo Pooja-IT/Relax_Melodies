@@ -7,7 +7,7 @@ import {
 export default function Nav() {
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-primary d-flex space-between">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img src= "" className="d-inline-block" alt="" />
           Relax Melodies
         </a>
