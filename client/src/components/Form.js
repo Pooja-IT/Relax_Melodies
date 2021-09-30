@@ -24,7 +24,8 @@ export default function Form() {
                  
             </form>
             <div class="join">
-            <Button onClick={ () => {console.log("Click on Join Now")}}>Join Now</Button>
+            <Button const path = '/book-online' onClick={ () => {console.log("Click on Join Now")}}>Join Now
+            </Button>
             </div>
         </section>
     )

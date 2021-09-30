@@ -1,4 +1,5 @@
 // import './App.css';
+
 import useApplicationData from './hook/useApplicationData';
 import YogaSession from './components/YogaSession';
 import Register from './components/Register';
