@@ -3,6 +3,8 @@ const dbHelpers = require('./db/helpers/dbHelpers')(db);
 
 const bcrypt = require('bcrypt');
 
+const jwtGenerator = require("./utils/jwtGenerator");
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -80,6 +82,9 @@ app.post("/api/v1/users", async (req, res) => {
     ]);
 
     //5. Generating our jwt token
+    const token = jwtGenerator(newUser.rows[0].id);
+
+    res.json({ token });
 
     // res.status(201).json({
     //   status: "success",
