@@ -1,8 +1,10 @@
 .services-container {
   width: 100%;
-  margin: 0 auto;
-  display: block;
-  text-align: center;
+  margin-left: 200px;
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+ 
 }
 article {
   width: 400px;
@@ -12,7 +14,27 @@ article {
   width: 90%;
   max-width: 300px;
   margin: 1em auto;
+  
+  
   img {
-    width: 100%;
+    width: 120%;
+    margin-top: 70px;
+    margin-left: 20px;
   }
 }
+
+.button{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.article-container{
+  margin-right: 40px;
+  margin-left: 80px;
+
+}
+

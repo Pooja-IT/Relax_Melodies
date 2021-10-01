@@ -20,30 +20,29 @@ export default function YogaSessions(props) {
   },[])
 
   return (
-    <div className="sevices-container">
+  <div className="sevices-container">
     {data.sessions.map(element => (
-      
-      <article>
-        <div className="service-image-container">
-        <Link to={`/book-online/${element.id}`}>        
-
-        <img src={element.picture} alt=""/>
+    <article className="article-container">
+      <div className="service-image-container">
+        <Link to={`/book-online/${element.id}`}>
+          <img src={element.picture} alt=""/>
         </Link>
-        </div>
-        
-    <h1>
+      </div>
+      <h1>
         {element.name}
-    </h1>
-        {element.description}
-        {element.duration}
-        {element.price}
-        <Link to={`/book-online/${element.id}`}>        
-        <Button>Book-Online</Button>
-        </Link>
+      </h1>
+      {element.description}
+      {element.duration}
+      {element.price}
+      <Link to={`/book-online/${element.id}`}>
+        <div className="button">
+          <Button>Book-Online</Button>
+        </div>  
+      </Link>
 
     </article>
     ))}
     
-    </div>
+  </div>
   );
 }

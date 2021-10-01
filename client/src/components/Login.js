@@ -14,11 +14,11 @@ export default function Login() {
     <div id="login">
         <form name='name' onSubmit={handleSubmit}>
         <div className="content animate__animated animate__fadeIn animate__slow">
-          <div className="container">
+         
             <div className="row justify-content-center">
               <div className="col-md-6 contents">
                 <div className="row justify-content-center">
-                  <span className="border">
+                 
                   <div className="col-md-12">
                     <div className="form-block">
                       <h1>Log In</h1>
@@ -35,17 +35,17 @@ export default function Login() {
                           <input name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
                         </div>
                         <div>
-                        <input type="submit" disabled={validateForm()} value="Log In" className="btn btn-pill text-white btn-block btn-primary" />
+                        <input type="submit" disabled={validateForm()} value="Log In" className="btn-primary" />
                         </div>
                       </div>
                     </div>
-                  </span>
+                
                   </div>
                 </div>
               </div>
             </div>
-            </div>
+         
             </form>
-        </div>
+     </div>
         )
   };

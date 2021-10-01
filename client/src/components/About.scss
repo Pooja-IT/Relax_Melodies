@@ -1,20 +1,3 @@
-$primary: #e2e956;
-$secondary : #0b0101;
-$danger:rgba(218, 12, 12, 0.767);
-$warning: #FFA500;
-$theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  'danger':$danger,
-  'warning':$warning,
-);
-
-// Custom.scss
-// Option A: Include all of Bootstrap
-
-// Include any default variable overrides here (though functions won't be available)
-
-@import "../node_modules/bootstrap/scss/bootstrap";
 
 
 .img{
@@ -27,7 +10,12 @@ $theme-colors: (
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+  font-style: oblique;
+  background-color: rgb(237, 219, 150);
+  margin-left: 500px;
+  margin-right: 500px;
 }
 
 .yoga-p{
@@ -38,6 +26,7 @@ $theme-colors: (
   padding-right: 30px;
   padding-top: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 .about{

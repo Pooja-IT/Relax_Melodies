@@ -1,6 +1,6 @@
 
-$primary: #e2e956;
-$secondary : #0b0101;
+$primary: #e9d45d;
+$secondary : #d3aaaa;
 $danger:rgba(218, 12, 12, 0.767);
 $warning: #FFA500;
 $theme-colors: (
@@ -28,8 +28,11 @@ body {
 }
 
 .navbar-nav{
-    padding-left: 60px;
-
+    padding-left: 10px;
+    background-color: rgba(16, 16, 16, 0.146);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bolder;
 }
 
 .navbar {
