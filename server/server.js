@@ -9,6 +9,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const users = require('./routes/users');
 require('dotenv').config();
 
 // var indexRouter = require('./routes/index');
@@ -47,8 +48,40 @@ app.get("/api/v1/users", async (req, res) => {
 
 });
 
+//login a user
+app.post('/login', async (req, res) => {
+  try {
+    //1. destucture the res.body
+    const { email, password } = req.body;
+
+    //2. check if user doesnt exist (if not throw error)
+    const user = await db.query("SELECT * FROM users WHERE email = $1", [
+      email
+    ]);
+
+    if (user.rows.length === 0) {
+      return res.status(401).json("Password or Email is incorrect");
+    }
+
+    //3. check if the incoming password is the same as the database password
+
+    const validPassword = await bcrypt.compare(password, user.row[0].password);
+
+    if (!validPassword) {
+      return res.status(401).json("Password or Email is incorrect");
+    }
+
+    //4. give them jwt token
+    const token = jwtGenerator(users.rows[0].id);
+    res.json({ token });
+
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 //Create a user
-app.post("/api/v1/users", async (req, res) => {
+app.post("/registar", async (req, res) => {
 
   console.log(req.body);
   
@@ -94,7 +127,7 @@ app.post("/api/v1/users", async (req, res) => {
     // });
 
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
