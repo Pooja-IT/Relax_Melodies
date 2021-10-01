@@ -38,6 +38,7 @@ return (<div className="App" >
       <Route path="/register" component={Register}/>
       <Route exact path="/book-online" component={YogaSessions}/>
       <Route path="/book-online/:id" component={SessionDetails}/>
+      
     </Switch>
     <Footer />
   </Router> 
