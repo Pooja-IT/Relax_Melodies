@@ -1,5 +1,7 @@
 import React from "react";
 import "./Form.scss";
+// import DateRangePicker from 'react-bootstrap-daterangepicker';
+// import TimePicker from 'react-bootstrap-time-picker';
 
 export default function Form() {
     function handleSubmit(event){
@@ -25,10 +27,12 @@ export default function Form() {
                         <label>Choose your Date:</label>
                         <input class="date-form" type="date" name="date" min="2017-04-01" max="2017-04-30"/>
                     </div>
+                </div>
+                {/* <TimePicker start="10:00" end="21:00" step={30} /> */}
                     <div className="single-form">
                         <input type="submit" value="Join now"/>
                     </div>
-                </div>
+                
             </form>
         </section>
     )
