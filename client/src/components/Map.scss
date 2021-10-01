@@ -1,22 +1,5 @@
-$primary: #05653f;
-$secondary : #0b0101;
-$danger:rgba(218, 12, 12, 0.767);
-$warning: #FFA500;
-$theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  'danger':$danger,
-  'warning':$warning,
-);
-
-// Custom.scss
-// Option A: Include all of Bootstrap
-
-// Include any default variable overrides here (though functions won't be available)
-
-@import "../node_modules/bootstrap/scss/bootstrap";
 
 #map-container-google-2{
     padding-top: 10px;
-    height: 50px;
+   
 }

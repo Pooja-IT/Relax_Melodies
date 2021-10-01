@@ -1,6 +1,8 @@
 const db = require('./db');
 const dbHelpers = require('./db/helpers/dbHelpers')(db);
 
+const bcrypt = require('bcrypt');
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -49,19 +51,42 @@ app.post("/api/v1/users", async (req, res) => {
   console.log(req.body);
   
   try {
-    const results = await db.query("INSERT INTO users (name, number, email, password) VALUES ($1, $2, $3, $4) returning *", [
-      req.body.name,
-      req.body.number,
-      req.body.email,
-      req.body.password
+
+    //1. destructure the req.body (not needed yet)
+    const { name, number, email, password } = req.body;
+
+    
+    //2. check if user exist (if users does then throw error)
+    const results = await db.query("SELECT * FROM users WHERE email = $1", [
+      email
     ]);
 
-    res.status(201).json({
-      status: "success",
-      data: {
-        user: results.rows[0]
-      }
-    })
+    if (results.rows.length !== 0) {
+      return res.status(401).send("User already exist");
+    }
+
+    //3. Bcrypt the user password
+    const saltRound = 10;
+    const salt = await bcrypt.genSalt(saltRound);
+
+    const bcryptPassword = await bcrypt.hash(password, salt);
+
+    //4. Enter the new user insisde out database
+    const newUser = await db.query("INSERT INTO users (name, number, email, password) VALUES ($1, $2, $3, $4) returning *", [
+      name,
+      number,
+      email,
+      bcryptPassword
+    ]);
+
+    //5. Generating our jwt token
+
+    // res.status(201).json({
+    //   status: "success",
+    //   data: {
+    //     user: results.rows[0]
+    //   }
+    // });
 
   } catch (error) {
     console.log(error);
@@ -75,7 +100,8 @@ app.get("/api/v1/sessions", async (req, res) => {
   try {
     const results = await db.query("SELECT * FROM yoga_session");
 
-    console.log(results);
+    console.log(results.rows);
+
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -121,7 +147,7 @@ app.post("/api/v1/booking/:id", async (req, res) => {
       req.body.time
     ]);
   } catch (error) {
-    
+    console.log(error);
   }
 });
 

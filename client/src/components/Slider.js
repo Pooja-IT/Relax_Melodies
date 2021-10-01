@@ -27,7 +27,6 @@ export default function Slider() {
           <div className="carousel-caption d-none d-md-block">
             <h2>Open Your Mind to Mindfulness</h2>
         
-            
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

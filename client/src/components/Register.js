@@ -16,7 +16,7 @@ export default function Register(props) {
                 <div className="col-md-6 contents">
                       <div className="col-md-12">
                         <div className="form-block">
-                      <h1>Sign Up</h1>
+                      <h1 className="form-signup">Sign Up</h1>
                       <span>Already a member?</span>
                       <span className="d-block text-center my-4 text-muted">
                             <a href="/login" className="font-weight-bold" ><b>Log In</b></a>
@@ -40,7 +40,7 @@ export default function Register(props) {
                               <label for="password"><b>Password:</b></label>
                               <input name="password" type="password" className="form-control" id="password"/>
                             </div>
-                              <input type="submit" value="Register" className="btn btn-pill text-white btn-block btn-primary" />
+                              <input type="submit" value="Register" className="btn-primary" />
                         </div>
                       </div>
                   </div>
