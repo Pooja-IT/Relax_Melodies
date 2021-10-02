@@ -1,10 +1,7 @@
 import { useState } from "react";
 import "./Register.scss";
-// import { useCookies } from 'react-cookie';
-
 
 export default function Register({ setAuth }) {
-  // const [cookies, setCookie] = useCookies(['name', 'id']);
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -38,13 +35,9 @@ export default function Register({ setAuth }) {
       setAuth(true);
 
     } catch (error) {
-      console.error(error.message);
     }
   }
 
-  // function handleSubmit(){
-  //   console.log("submit");
-  // }
   return (  
         <div id='register'>
         <form onSubmit={onSubmitForm}>

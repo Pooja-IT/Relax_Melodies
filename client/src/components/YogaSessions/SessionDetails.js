@@ -13,20 +13,15 @@ export default function SessionDetails() {
     .then(response => {
       console.log(response.data.data.YogaSession);
          setData(response.data.data.YogaSession)
-
-    })    
+               response.data.data.YogaSession.yoga_positions.forEach(positionid => {
+        axios.get(`/api/v1/positions/${positionid}`)
+        .then((response) => {
+          setPositionsData(prev => [...prev,response.data.data.YogaPosition])
+        })  
+      })
+    }) 
   },[id])
-      
-    //   setData(response.data.data.YogaSession)
-    //   // response.data.data.YogaSession.yoga_positions.forEach(positionid => {
-    //   //   axios.get(`/api/v1/positions/${positionid}`)
-    //   //   .then((response) => {
-    //   //     setPositionsData(prev => [...prev,response.data.data.YogaPosition])
-    //   //   })  
-    //   // })
-    // })  
   
-
   return <div>
     
       <article>

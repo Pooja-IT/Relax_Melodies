@@ -2,8 +2,6 @@ import "./Service.scss";
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-
-
 export default function Body() {
   const [data,setData] = useState({
     sessions: []

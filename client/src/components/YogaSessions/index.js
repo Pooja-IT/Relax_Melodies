@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import Button from '../Button';
 import './index.scss';
 import { Link } from 'react-router-dom';
-
-
 
 export default function YogaSessions() {
   const [data,setData] = useState({
@@ -41,7 +38,7 @@ export default function YogaSessions() {
       </p>
       <Link to={`/book-online/${element.id}`}>
         <div className="button">
-          <button className="button-container">Book-Now</button>
+          <button className="button-container">Book Now</button>
           {/* <Button>Book Now</Button> */}
         </div>  
       </Link>

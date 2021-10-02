@@ -3,8 +3,6 @@ import "./Nav.scss";
 import {
   Link
 } from "react-router-dom";
-import { render } from "react-dom";
-import Register from "./Register";
 
 export default function Nav({ setAuth, isAuthenticated }) {
 
