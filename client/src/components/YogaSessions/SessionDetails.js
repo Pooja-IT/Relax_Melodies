@@ -13,7 +13,7 @@ export default function SessionDetails() {
          setData(response.data.data.YogaSession)
 
     })    
-  },[])
+  },[id])
 
   return <div>
     
@@ -22,14 +22,19 @@ export default function SessionDetails() {
         <img src={data.picture} alt=""/>
         </div>
         
-    <h1>
+    <h1 className="name-container">
         {data.name}
     </h1>
+    <p className="desc-container">
         {data.description}
+    </p>
+    <p className="duration-container">
         {data.duration}
+    </p>
+    <p className="price-container">
         {data.price}
+    </p>
         
-
     </article>
       <Form />
 

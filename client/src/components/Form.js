@@ -30,7 +30,7 @@ export default function Form() {
                 </div>
                 {/* <TimePicker start="10:00" end="21:00" step={30} /> */}
                     <div className="single-form">
-                        <input type="submit" value="Join now"/>
+                        <input type="submit" className="button-container" value="Join now"/>
                     </div>
                 
             </form>

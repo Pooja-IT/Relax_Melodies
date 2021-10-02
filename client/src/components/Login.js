@@ -24,7 +24,7 @@ export default function Login() {
                       <h1>Log In</h1>
                       <span>New to this app?</span>
                       <span className="d-block text-center my-4 text-muted">
-                            <a href="/register" className="font-weight-bold" ><b>Sign Up</b></a>
+                            <a href="/register" className="font" >Sign Up</a>
                         </span> 
                         <div className="form-group first">
                           <label for="email"><b>Email:</b></label>

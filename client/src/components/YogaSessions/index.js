@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Button from '../Button';
+// import Button from '../Button';
 import './index.scss';
 import { Link } from 'react-router-dom';
 
 
 
-export default function YogaSessions(props) {
+export default function YogaSessions() {
   const [data,setData] = useState({
     sessions: []
   });
@@ -14,7 +14,6 @@ export default function YogaSessions(props) {
   useEffect(() => { 
     axios.get("/api/v1/sessions")
     .then(function (response) {
-      console.log(response.data);
      setData(prev => ({...prev,sessions: response.data.data.YogaSessions}))
     })    
   },[])
@@ -28,15 +27,21 @@ export default function YogaSessions(props) {
           <img src={element.picture} alt=""/>
         </Link>
       </div>
-      <h1>
+      <h1 className="name-container">
         {element.name}
       </h1>
+      <p className="desc-container">
       {element.description}
+      </p>
+      <p className="duration-container">
       {element.duration}
+      </p>
+      <p className="price-container">
       {element.price}
+      </p>
       <Link to={`/book-online/${element.id}`}>
         <div className="button">
-          <Button>Book-Online</Button>
+          <button className="button-container">Book-Online</button>
         </div>  
       </Link>
 

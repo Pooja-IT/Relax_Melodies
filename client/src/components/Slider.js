@@ -8,7 +8,7 @@ export default function Slider() {
        
         <div className="carousel-item active">
 
-          <img src="/images/yoga.jpg" className="d-block w-100" alt="..."/>
+          <img src="/images/wloga.jpg" className="d-block w-100" alt="Yoga"/>
           <div className="carousel-caption d-none d-md-block">
             <h2>Open Your Mind to Mindfulness</h2>
             <Button onClick={ () => {console.log("Click on Subscribe")}}>Subscribe</Button>

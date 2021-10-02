@@ -12,7 +12,7 @@ export default function Register(props) {
         <div id='register'>
         <form onClick={ handleSubmit()} >
             <div className="container">
-              <div className="row justify-content-center">
+              <div className="row">
                 <div className="col-md-6 contents">
                       <div className="col-md-12">
                         <div className="form-block">
