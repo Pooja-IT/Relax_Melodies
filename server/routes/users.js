@@ -22,7 +22,7 @@ module.exports = (db) => {
        RETURNING id;
     `,
       [req.body.email, req.body.password, req.body.firstname, req.body.lastname]
-    )
+    );
   });
   return router;
 };

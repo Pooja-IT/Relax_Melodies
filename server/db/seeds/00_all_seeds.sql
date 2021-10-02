@@ -1,8 +1,8 @@
-INSERT INTO users (name, number, email, password) VALUES ('Brenton', 6135531122, 'brenton@gmail.com', '1234');
-INSERT INTO users (name, number, email, password) VALUES ('Ali', 4165252424, 'ali416@gmail.com', 'hello1234');
-INSERT INTO users (name, number, email, password) VALUES ('Dave', 3135252525, 'davey@hotmail.com', 'HEY123');
-INSERT INTO users (name, number, email, password) VALUES ('Gary', 4251010001, 'gary1@hotmail.com', '1234');
-INSERT INTO users (name, number, email, password) VALUES ('Rami', 3435655665, 'ramiM@yahoo.com', '12345');
+INSERT INTO users (name, email, password) VALUES ('Brenton', 'brenton@gmail.com', '1234');
+INSERT INTO users (name, email, password) VALUES ('Ali', 'ali416@gmail.com', 'hello1234');
+INSERT INTO users (name, email, password) VALUES ('Dave', 'davey@hotmail.com', 'HEY123');
+INSERT INTO users (name, email, password) VALUES ('Gary', 'gary1@hotmail.com', '1234');
+INSERT INTO users (name, email, password) VALUES ('Rami', 'ramiM@yahoo.com', '12345');
 
 INSERT INTO yoga_position (name, video, description) VALUES ('Head-stand', 'ilA8w6G98a8', 'Known as the "King of āsanas" because of its many benefits, the Headstand is the first in the sequence. In the words of Swami Sivananda, “Head-stand is a panacea, a cure-all, a sovereign specific for all diseases.” Being upside down in this āsana helps the brain to draw abundant oxygen-rich blood from the heart. It is beneficial for memory and concentration, thereby helping with meditation practice.');
 INSERT INTO yoga_position (name, video, description) VALUES ('Shoulderstand', 'jt5NYaZA8pg', 'Considered to be the “Queen of āsanas”, Sarvangāsana strengthens the entire body. In this posture, the chin is pressed against the throat because of which the thyroid gland is regulated which in turn balances all other glands in the body assuring healthy functioning of all the body systems and organs.');

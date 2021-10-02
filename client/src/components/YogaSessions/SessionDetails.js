@@ -13,31 +13,38 @@ export default function SessionDetails() {
     .then(response => {
       console.log(response.data.data.YogaSession);
          setData(response.data.data.YogaSession)
-
-         response.data.data.YogaSession.yoga_positions.forEach(positionid => {
-          axios.get(`/api/v1/positions/${positionid}`)
-          .then((response) => {
-            setPositionsData(prev => [...prev,response.data.data.YogaPosition])
+               response.data.data.YogaSession.yoga_positions.forEach(positionid => {
+        axios.get(`/api/v1/positions/${positionid}`)
+        .then((response) => {
+          setPositionsData(prev => [...prev,response.data.data.YogaPosition])
         })  
-        })
-    })  
+      })
+    }) 
+  },[id])
   
-  },[])
-
-  
-
   return <div>
     
       <article>
         <div className="service-image-container">
         <img src={data.picture} alt=""/>
         </div>
+        
+    <h1 className="name-container">
+        {data.name}
+    </h1>
+    <p className="desc-container">
         <h1>
           {data.name}
         </h1>
         {data.description}
+    </p>
+    <p className="duration-container">
         {data.duration}
+    </p>
+    <p className="price-container">
         {data.price}
+    </p>
+        
     </article>
     <h2>Positions</h2>
     {positionsData.map(position => (
