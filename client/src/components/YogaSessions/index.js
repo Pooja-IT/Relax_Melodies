@@ -41,10 +41,10 @@ export default function YogaSessions() {
       </p>
       <Link to={`/book-online/${element.id}`}>
         <div className="button">
-          <button className="button-container">Book-Online</button>
+          <button className="button-container">Book-Now</button>
+          {/* <Button>Book Now</Button> */}
         </div>  
       </Link>
-
     </article>
     ))}
     

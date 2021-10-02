@@ -1,16 +1,53 @@
+import { useState } from "react";
 import "./Register.scss";
 // import { useCookies } from 'react-cookie';
 
 
-export default function Register(props) {
+export default function Register({ setAuth }) {
   // const [cookies, setCookie] = useCookies(['name', 'id']);
 
-  function handleSubmit(){
-    console.log("submit");
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    password: ""
+  })
+
+  const { name, email, password } = inputs;
+
+  const onChange = (e) => {
+    setInputs({...inputs, [e.target.name] : e.target.value })
   }
+
+  const onSubmitForm = async (e) => {
+    e.preventDefault()
+
+    try {
+
+      const body = { name, email, password }
+      
+      const response = await fetch("/register", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify(body)
+      })
+
+      const parseRes = await response.json()
+
+      localStorage.setItem("token", parseRes.token);
+
+      setAuth(true);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  // function handleSubmit(){
+  //   console.log("submit");
+  // }
   return (  
         <div id='register'>
-        <form onClick={ handleSubmit()} >
+        <form onSubmit={onSubmitForm}>
             <div className="container">
               <div className="row">
                 <div className="col-md-6 contents">
@@ -23,22 +60,18 @@ export default function Register(props) {
                         </span> 
                             <div className="form-group last mb-4">
                               <label for="name"><b>Name:</b></label>
-                              <input name="name" type="name" className="form-control" id="name"
-                               />
-                            </div>
-                            <div className="form-group last mb-4">
-                              <label for="Number"><b>Phone:</b></label>
-                              <input name="Number" type="Number" className="form-control" id="Number"
+                              <input name="name" type="name" className="form-control" id="name" value={name} onChange={e => onChange(e)}
                                />
                             </div>
                             <div className="form-group first">
                               <label for="email"><b>Email:</b></label>
-                              <input name="email" type="email" className="form-control" id="email"
+                              <input name="email" type="email" className="form-control" id="email" value={email} onChange={e => onChange(e)}
                                />
                             </div>
                             <div className="form-group last mb-4">
                               <label for="password"><b>Password:</b></label>
-                              <input name="password" type="password" className="form-control" id="password"/>
+                              <input name="password" type="password" className="form-control" id="password" value={password} onChange={e => onChange(e)}
+                              />
                             </div>
                               <input type="submit" value="Register" className="btn-primary" />
                         </div>

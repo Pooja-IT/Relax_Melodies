@@ -1,7 +1,22 @@
-import React from "react";
 import "./Service.scss";
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+
+
 
 export default function Body() {
+  const [data,setData] = useState({
+    sessions: []
+  });
+
+  useEffect(() => { 
+    axios.get("/api/v1/sessions")
+    .then(function (response) {
+      console.log(response.data);
+     setData(prev => ({...prev,sessions: response.data.data.YogaSessions}))
+    })    
+  },[])
+  
     return(
       <>
         <section>
@@ -10,48 +25,21 @@ export default function Body() {
             <i class="fas fa-exclamation"></i>
           </h1>
         </section>
-        
-        <section className='section-one'>
-          <div className="cst-card">
-            <img src="/images/3.jpg" className="card-img-top" alt=""/>
-            <div className="card-body">
-              <h5 className="card-title">Session Name</h5>
-              <p className="card-text">Duration</p>
-              <p className="card-text">Price</p>
-            </div>
-          </div>
-
-          <div className="cst-card">
-            <img src="/images/3.jpg" className="card-img-top" alt=""/>
-            <div className="card-body">
-              <h5 className="card-title">Session Name</h5>
-              <p className="card-text">Duration</p>
-              <p className="card-text">Price</p>
-            </div>
-          </div>
-        </section>
-
-        <section className='section-one'>
-          <div className="cst-card">
-            <img src="/images/6.jpg" className="card-img-top" alt=""/>
-            <div className="card-body">
-              <h5 className="card-title">Session Name</h5>
-              <p className="card-text">Duration</p>
-              <p className="card-text">Price</p>
-            </div>
-          </div>
-
-          <div className="cst-card">
-            <img src="/images/6.jpg" className="card-img-top" alt=""/>
-            <div className="card-body">
-              <h5 className="card-title">Session Name</h5>
-              <p className="card-text">Duration</p>
-              <p className="card-text">Price</p>
-            </div>
-          </div>
-        </section>
+        <div className="sevices-container">
+    {data.sessions.map(element => (
+    <article className="article-container">
+      <div className="service-image-container">
+          <img src={element.picture} alt=""/>
+      </div>
+      <h1>
+        {element.name}
+      </h1>
+      {element.description}
+      {element.duration}
+      {element.price}
+    </article>
+    ))}
+  </div>    
       </>
-            
-
         )
 }

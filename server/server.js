@@ -5,6 +5,10 @@ const bcrypt = require('bcrypt');
 
 const jwtGenerator = require("./utils/jwtGenerator");
 
+const cors = require("cors");
+
+const authorization = require("./middleware/authorization");
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -19,6 +23,7 @@ var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -65,14 +70,14 @@ app.post('/login', async (req, res) => {
 
     //3. check if the incoming password is the same as the database password
 
-    const validPassword = await bcrypt.compare(password, user.row[0].password);
+    const validPassword = await bcrypt.compare(password, user.rows[0].password);
 
     if (!validPassword) {
       return res.status(401).json("Password or Email is incorrect");
     }
 
     //4. give them jwt token
-    const token = jwtGenerator(users.rows[0].id);
+    const token = jwtGenerator(user.rows[0].id);
     res.json({ token });
 
   } catch (error) {
@@ -81,14 +86,14 @@ app.post('/login', async (req, res) => {
 });
 
 //Create a user
-app.post("/registar", async (req, res) => {
+app.post("/register", async (req, res) => {
 
   console.log(req.body);
   
   try {
 
     //1. destructure the req.body (not needed yet)
-    const { name, number, email, password } = req.body;
+    const { name, email, password } = req.body;
 
     
     //2. check if user exist (if users does then throw error)
@@ -107,9 +112,8 @@ app.post("/registar", async (req, res) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
 
     //4. Enter the new user insisde out database
-    const newUser = await db.query("INSERT INTO users (name, number, email, password) VALUES ($1, $2, $3, $4) returning *", [
+    const newUser = await db.query("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) returning *", [
       name,
-      number,
       email,
       bcryptPassword
     ]);
@@ -172,6 +176,24 @@ app.get("/api/v1/sessions/:id", async (req, res) => {
   }
 });
 
+// get a certain positions with id
+app.get("/api/v1/positions/:id", async (req, res) => {
+  console.log(req.params);
+
+  try {
+    const results = await db.query("SELECT * FROM yoga_position WHERE id = $1", [req.params.id]);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        YogaPosition: results.rows[0]
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 //Create a booking (book a session)
 app.post("/api/v1/booking/:id", async (req, res) => {
@@ -201,6 +223,30 @@ app.put("/api/v1/booking/:id", (req, res) => {
     status: 'sucess'
   })
 });
+
+app.get("/auth/is-verify", authorization, async (req, res) => {
+  try {
+    res.json(true)
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error")
+  }
+})
+
+app.get("/privateRoute", authorization, async (req, res) => {
+  try {
+    //req.user has payload
+    //res.json(req.user);
+
+    const user = await db.query("SELECT name FROM users WHERE id = $1", [req.user]);
+
+    res.json(user.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error")
+  }
+})
 
 
 const port = process.env.PORT || 3008;
