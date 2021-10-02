@@ -3,12 +3,10 @@ DROP TABLE IF EXISTS booking CASCADE;
 DROP TABLE IF EXISTS yoga_session CASCADE;
 DROP TABLE IF EXISTS yoga_center CASCADE;
 DROP TABLE IF EXISTS yoga_position CASCADE;
-DROP TABLE IF EXISTS position_session CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    number VARCHAR(45) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
@@ -28,6 +26,7 @@ CREATE TABLE yoga_session(
     price FLOAT,
     picture VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    yoga_positions INTEGER ARRAY,
     yoga_center_id INTEGER REFERENCES yoga_center(id) ON UPDATE CASCADE
 );
 
@@ -38,8 +37,6 @@ CREATE TABLE booking(
     time VARCHAR(225) NOT NULL
 );
 
-
-
 CREATE TABLE yoga_position(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NULL,
@@ -47,7 +44,7 @@ CREATE TABLE yoga_position(
     description TEXT NOT NULL
 );
 
-CREATE TABLE position_session(
-    yoga_session_id INTEGER REFERENCES yoga_session(id) ON UPDATE CASCADE,
-    yoga_position_id INTEGER REFERENCES yoga_position(id) ON UPDATE CASCADE
-);
+-- CREATE TABLE position_session(
+--     yoga_session_id INTEGER REFERENCES yoga_session(id) ON UPDATE CASCADE,
+--     yoga_position_id INTEGER REFERENCES yoga_position(id) ON UPDATE CASCADE
+-- );
