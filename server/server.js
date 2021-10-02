@@ -81,7 +81,7 @@ app.post('/login', async (req, res) => {
 });
 
 //Create a user
-app.post("/registar", async (req, res) => {
+app.post("/register", async (req, res) => {
 
   console.log(req.body);
   
@@ -165,6 +165,24 @@ app.get("/api/v1/sessions/:id", async (req, res) => {
       status: "success",
       data: {
         YogaSession: results.rows[0]
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// get a certain positions with id
+app.get("/api/v1/positions/:id", async (req, res) => {
+  console.log(req.params);
+
+  try {
+    const results = await db.query("SELECT * FROM yoga_position WHERE id = $1", [req.params.id]);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        YogaPosition: results.rows[0]
       }
     })
   } catch (error) {
