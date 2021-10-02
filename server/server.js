@@ -65,14 +65,14 @@ app.post('/login', async (req, res) => {
 
     //3. check if the incoming password is the same as the database password
 
-    const validPassword = await bcrypt.compare(password, user.row[0].password);
+    const validPassword = await bcrypt.compare(password, user.rows[0].password);
 
     if (!validPassword) {
       return res.status(401).json("Password or Email is incorrect");
     }
 
     //4. give them jwt token
-    const token = jwtGenerator(users.rows[0].id);
+    const token = jwtGenerator(user.rows[0].id);
     res.json({ token });
 
   } catch (error) {
@@ -81,7 +81,7 @@ app.post('/login', async (req, res) => {
 });
 
 //Create a user
-app.post("/registar", async (req, res) => {
+app.post("/register", async (req, res) => {
 
   console.log(req.body);
   
