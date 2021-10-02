@@ -43,7 +43,8 @@ return (<div className="App" >
 
   {/* <ul> {userList} </ul> */}
   <Router>
-    <Nav />
+    {/* <Nav setAuth={setAuth} /> */}
+    <Route render={props => <Nav {...props} setAuth={setAuth} isAuthenticated={isAuthenticated} />} />
     <Switch >
       {/* <Route exact path="/" component={Home}/>
       <Route path="/login" component={Login}/>

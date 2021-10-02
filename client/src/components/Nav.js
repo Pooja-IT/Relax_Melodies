@@ -1,25 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Nav.scss";
 import {
   Link
 } from "react-router-dom";
+import { render } from "react-dom";
+import Register from "./Register";
 
-export default function Nav() {
-    return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-primary d-flex space-between">
-        <a className="navbar-brand" href="/">
-          <img src= "" className="d-inline-block" alt="" />
-          Relax Melodies
-        </a>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <div className="navbar-nav">
-              <Link to="/" className="nav-item nav-link">Home</Link>
-              <Link to="/book-online" className="nav-item nav-link">Book Online</Link>
-              <Link to="/login" className="nav-item nav-link">Login</Link>
-              <Link to="/register" className="nav-item nav-link">Register</Link>
-            </div>
+export default function Nav({ setAuth, isAuthenticated }) {
+
+  const [name, setName] = useState("")
+
+  async function getName() {
+    try {
+      const response = await fetch("http://localhost:3009/privateRoute", {
+        method: "GET",
+        headers: {token: localStorage.token}
+      });
+
+      const parseRes = await response.json()
+      
+      setName(parseRes.name)
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  const logout = (e) => {
+    e.preventDefault()
+    localStorage.removeItem("token")
+    setAuth(false);
+  }
+
+  useEffect(() => {
+    getName()
+  },[])
+
+  
+  let login
+  let register
+  if (isAuthenticated === true) {
+    login = <Link className="nav-item nav-link" color="black">{name}</Link>;
+    register = <Link to="/" className="nav-item nav-link" onClick={e => logout(e)}>Logout</Link>
+  } else {
+    login = <Link to="/login" className="nav-item nav-link">Login</Link>
+    register = <Link to="/register" className="nav-item nav-link">Register</Link>
+  }
+
+
+  return (
+      <nav className="navbar navbar-expand-md navbar-dark bg-primary d-flex space-between">
+      <a className="navbar-brand" href="/">
+        <img src= "" className="d-inline-block" alt="" />
+        Relax Melodies
+      </a>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <div className="navbar-nav">
+            <Link to="/" className="nav-item nav-link">Home</Link>
+            <Link to="/book-online" className="nav-item nav-link">Book Online</Link>
+            {login}
+            {register}
           </div>
-        </nav>
-    )
+        </div>
+      </nav>
+  )
 
 }
