@@ -10,7 +10,7 @@ export default function Register(props) {
   }
   return (  
         <div id='register'>
-        <form onClick={ handleSubmit()} >
+        <form action="http://localhost:3001/register" method="post" onClick={ handleSubmit()} >
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-md-6 contents">

@@ -35,7 +35,7 @@ export default function Login() {
                           <input name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
                         </div>
                         <div>
-                        <input type="submit" disabled={validateForm()} value="Log In" className="btn-primary" />
+                        <input type="submit" disabled={!validateForm()} value="Log In" className="btn-primary" />
                         </div>
                       </div>
                     </div>

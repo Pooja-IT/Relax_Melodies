@@ -10,6 +10,8 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 // import Form from './components/Form';
 import SessionDetails from './components/YogaSessions/SessionDetails';
+import Payment from './components/YogaSessions/Payment';
+
 
 import {
   BrowserRouter as Router,
@@ -38,6 +40,8 @@ return (<div className="App" >
       <Route path="/register" component={Register}/>
       <Route exact path="/book-online" component={YogaSessions}/>
       <Route path="/book-online/:id" component={SessionDetails}/>
+      <Route path="/payment" component={Payment}/>
+
       
     </Switch>
     <Footer />

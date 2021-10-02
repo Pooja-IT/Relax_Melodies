@@ -36,10 +36,9 @@ export default function YogaSessions(props) {
       {element.price}
       <Link to={`/book-online/${element.id}`}>
         <div className="button">
-          <Button>Book-Online</Button>
+          <Button>Book Now</Button>
         </div>  
       </Link>
-
     </article>
     ))}
     
