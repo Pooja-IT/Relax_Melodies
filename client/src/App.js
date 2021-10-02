@@ -1,5 +1,5 @@
 // import './App.css';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import useApplicationData from './hook/useApplicationData';
 import YogaSessions from './components/YogaSessions';
@@ -29,6 +29,27 @@ const App = () => {
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
+
+  async function isAuth() {
+    try {
+      
+      const response = await fetch("/auth/is-verify", {
+        method: "GET",
+        headers: {token : localStorage.token}
+      })
+
+      const parseRes = await response.json()
+      
+      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false)
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
+  },[])
 
 
   const {

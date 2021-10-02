@@ -12,7 +12,7 @@ export default function Nav({ setAuth, isAuthenticated }) {
 
   async function getName() {
     try {
-      const response = await fetch("http://localhost:3009/privateRoute", {
+      const response = await fetch("/privateRoute", {
         method: "GET",
         headers: {token: localStorage.token}
       });
