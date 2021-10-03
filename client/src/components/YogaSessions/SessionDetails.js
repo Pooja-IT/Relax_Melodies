@@ -10,6 +10,7 @@ import "./SessionDetails.scss";
 import {DatePickerComponent} from "@syncfusion/ej2-react-calendars";
 import {TimePickerComponent} from "@syncfusion/ej2-react-calendars";
 
+
 export default function SessionDetails() {
   const[inputs,setInputs] = useState({
     date: "",
@@ -67,7 +68,7 @@ const maxDate = new Date("12/31/2021 6:00 pm");
   
   return <div>
     
-      <article>
+      <article className="full-table">
         <div className="service-image-container">
         <img src={data.picture} alt=""/>
         </div>
@@ -97,25 +98,8 @@ const maxDate = new Date("12/31/2021 6:00 pm");
             {position.description}
         </article>
         ))}
-
-
-
-     {/* <section className="session-form">
-            <h4 className="name">Choose your Date:</h4>
-            <form className="row g-3">
-                
-                 
-                    <div className="single-form">
-                        <label>Choose your Date:</label>
-                        <input value={date} onChange={e => onChange(e)} className="date-form" type="date" name="date" min="2021-10-08" max="2021-10-30"/>
-                    </div>
-                    <div>Choose Your Time:</div>
-                <TimePicker start="10:00" end="21:00" step={30} />  
-            </form>
-        </section>  */}
         <section className="session-form">
             <h4 className="name">Choose your Date and Time:</h4>
-            
             <div className="input-forms">
                 <DatePickerComponent placeholder="Select a Date"
                 value={date}
@@ -137,9 +121,5 @@ const maxDate = new Date("12/31/2021 6:00 pm");
             <p>{inputs.date.toString()}</p>
             {payContainer}
         </section>
-       
-       
-        
-        
   </div>
 };

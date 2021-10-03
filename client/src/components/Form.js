@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import "./Form.scss";
-// import { Link } from 'react-router-dom';
-// import Button from "./Button";
-// import DateRangePicker from 'react-bootstrap-daterangepicker';
-// import TimePicker from 'react-bootstrap-time-picker';
 import {DatePickerComponent} from "@syncfusion/ej2-react-calendars";
 import {TimePickerComponent} from "@syncfusion/ej2-react-calendars";
 
@@ -12,19 +8,10 @@ export default function Form(props) {
     const[inputs,setInputs] = useState({
         date: "",
     });
-    const { date } = inputs;
-
-
-    const onChange = (e) => {
-        console.log(e)
-
+    const { date } = inputs;  const onChange = (e) => {
         setInputs({...inputs, [e.target.name] : e.target.value })
-        
+    }
 
-      }
-
-    
-    // const date = new Date("10/07/2021 10:00 am");
     const minDate = new Date("10/07/2021 9:00 am");
     const maxDate = new Date("12/31/2021 6:00 pm");
 
