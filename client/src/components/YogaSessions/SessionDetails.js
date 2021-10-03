@@ -88,15 +88,29 @@ const maxDate = new Date("12/31/2021 6:00 pm");
         </p>
         
     </article>
-        <h2>Positions</h2>
+    <h3 className="position-container">Positions</h3>
         {positionsData.map(position => (
-          <article>  
-            <h4>
-                {position.name}
-            </h4>
-            <iframe width="300" height="150" src={`https://www.youtube.com/embed/${position.video}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {position.description}
-        </article>
+          <article className="fullvideo">
+
+          <h4 className="video-name">
+          
+          {position.name}
+          
+          </h4>
+          
+          <div className="video-container">
+          
+          <iframe width="400" height="200" src={`https://www.youtube.com/embed/${position.video}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          
+          <p className="des-video">
+          
+          {position.description}
+          
+          </p>
+          
+          </div>
+          
+          </article>
         ))}
         <section className="session-form">
             <h4 className="name">Choose your Date and Time:</h4>
