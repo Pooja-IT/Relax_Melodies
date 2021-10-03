@@ -40,3 +40,27 @@ export default function Payment() {
                     </Link>
   </div>
 };
+
+// import Button from '../Button';
+// import { Link } from 'react-router-dom';
+
+// export default function Payment(props) {
+  
+//   return (
+//   <div>
+//       <article>
+//         <h1>
+//             {props.name}
+//         </h1>
+//         {props.duration}
+//         {props.price}
+//         {props.date}
+//       </article>
+//       <Link to={`/card`}>
+//             <div className="button">
+//         <Button>Pay Now</Button>
+//         </div>  
+//         </Link>
+//   </div>
+//   )
+// };

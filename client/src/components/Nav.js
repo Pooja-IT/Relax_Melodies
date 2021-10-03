@@ -37,7 +37,7 @@ export default function Nav({ setAuth, isAuthenticated }) {
   let login
   let register
   if (isAuthenticated === true) {
-    login = <Link className="nav-item nav-link" color="black">{name}</Link>;
+    login = <Link className="nav-item nav-link" color="black">Logged in as:{name}</Link>;
     register = <Link to="/" className="nav-item nav-link" onClick={e => logout(e)}>Logout</Link>
   } else {
     login = <Link to="/login" className="nav-item nav-link">Login</Link>

@@ -20,7 +20,6 @@ export default function Body() {
         <section>
           <h1 className="text">
             Services
-            <i class="fas fa-exclamation"></i>
           </h1>
         </section>
         <div className="sevices-container">
@@ -29,12 +28,18 @@ export default function Body() {
       <div className="service-image-container">
           <img src={element.picture} alt=""/>
       </div>
-      <h1>
+      <h3 className="name">
         {element.name}
-      </h1>
+      </h3>
+      <p className="description">
       {element.description}
+      </p>
+      <p className="duration">
       {element.duration}
+      </p>
+      <p className="price">
       {element.price}
+      </p>
     </article>
     ))}
   </div>    
