@@ -52,17 +52,17 @@ export default function Register({ setAuth }) {
                             <a href="/login" className="font-weight-bold" ><b>Log In</b></a>
                         </span> 
                             <div className="form-group last mb-4">
-                              <label for="name"><b>Name:</b></label>
+                              <label><b>Name:</b></label>
                               <input name="name" type="name" className="form-control" id="name" value={name} onChange={e => onChange(e)}
                                />
                             </div>
                             <div className="form-group first">
-                              <label for="email"><b>Email:</b></label>
+                              <label><b>Email:</b></label>
                               <input name="email" type="email" className="form-control" id="email" value={email} onChange={e => onChange(e)}
                                />
                             </div>
                             <div className="form-group last mb-4">
-                              <label for="password"><b>Password:</b></label>
+                              <label><b>Password:</b></label>
                               <input name="password" type="password" className="form-control" id="password" value={password} onChange={e => onChange(e)}
                               />
                             </div>

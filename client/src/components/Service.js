@@ -11,7 +11,7 @@ export default function Body() {
     axios.get("/api/v1/sessions")
     .then(function (response) {
       console.log(response.data);
-     setData(prev => ({...prev,sessions: response.data.data.YogaSessions}))
+     setData(prev => ({...prev, sessions: response.data.data.YogaSessions}))
     })    
   },[])
   
@@ -20,7 +20,7 @@ export default function Body() {
         <section>
           <h1 className="text">
             Services
-            <i class="fas fa-exclamation"></i>
+            <i className="fas fa-exclamation"></i>
           </h1>
         </section>
         <div className="sevices-container">
