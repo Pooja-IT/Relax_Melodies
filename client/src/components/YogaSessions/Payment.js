@@ -1,4 +1,4 @@
-import Button from '../Button';
+// import Button from '../Button';
 import { Link } from 'react-router-dom';
 import "./Payment.scss";
 
@@ -9,10 +9,10 @@ export default function Payment(props) {
       <article className="pay-container">
         <h3 className="title">
             {props.name}
-            <p className-="duration">
+            <p className="durations">
         {props.duration}
         </p>
-        <p className="price">
+        <p className="prices">
         {props.price}
         </p>
         <p className="date">
@@ -22,8 +22,9 @@ export default function Payment(props) {
         
       </article>
       <Link to={`/card`}>
-            <div className="button">
-        <Button>Pay Now</Button>
+            <div>
+        {/* <Button>Pay Now</Button> */}
+        <button className="button-container">Pay Now</button>
         </div>  
         </Link>
   </div>
