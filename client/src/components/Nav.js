@@ -7,6 +7,10 @@ import {
 export default function Nav({ setAuth, isAuthenticated }) {
 
   const [name, setName] = useState("")
+  // const [logoutName, setLogoutName] = useState({
+  //   login : <Link to="/login" className="nav-item nav-link">Login</Link>,
+  //   register: <Link to="/register" className="nav-item nav-link">Register</Link>
+  // })
 
   async function getName() {
     try {
@@ -18,6 +22,7 @@ export default function Nav({ setAuth, isAuthenticated }) {
       const parseRes = await response.json()
       
       setName(parseRes.name)
+      
     } catch (error) {
       console.error(error.message);
     }
@@ -36,13 +41,17 @@ export default function Nav({ setAuth, isAuthenticated }) {
   
   let login
   let register
-  if (isAuthenticated === true) {
-    login = <Link to="/" className="nav-item nav-link" color="black">Logged in as:{name}</Link>
-    register = <Link to="/" className="nav-item nav-link" onClick={e => logout(e)}>Logout</Link>
-  } else {
-    login = <Link to="/login" className="nav-item nav-link">Login</Link>
-    register = <Link to="/register" className="nav-item nav-link">Register</Link>
+  const loader = async function () {
+    
+    if (isAuthenticated === true) {
+      login = <Link className="nav-item nav-link" color="black">{name}</Link>;
+      register = <Link to="/" className="nav-item nav-link" onClick={e => logout(e)}>Logout</Link>
+    } else {
+      login = <Link to="/login" className="nav-item nav-link">Login</Link>
+      register = <Link to="/register" className="nav-item nav-link">Register</Link>
+    }
   }
+  loader()
 
 
   return (

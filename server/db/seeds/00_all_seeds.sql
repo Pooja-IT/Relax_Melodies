@@ -23,9 +23,9 @@ INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (1, 2, '2021-1
 INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (4, 4, '2021-10-7', '11am');
 INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (5, 5, '2021-10-9', '9am');
 
-INSERT INTO yoga_center (name, address) VALUES (3, '3827 Overland Ave, Culver City, CA 90232, United States');
-INSERT INTO yoga_center (name, address) VALUES (3, '1914 S Bundy Dr, Los Angeles, CA 90025, United States');
-INSERT INTO yoga_center (name, address) VALUES (1, '10921 Wilshire Blvd, Los Angeles, CA 90024, United States');
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('For U Fitness', '3827 Overland Ave, Culver City, CA 90232, United States', 34.018021, -118.406517);
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('Running Straight', '1914 S Bundy Dr, Los Angeles, CA 90025, United States', 34.034962, -118.456161);
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('Flexie', '10921 Wilshire Blvd, Los Angeles, CA 90024, United States', 34.058900, -118.444870);
 
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Mindfulness', true, 1, '$60', '1 hr', 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80', 'Mindfulness meditation involves sitting silently and paying attention to thoughts, sounds, the sensations of breathing or parts of the body, bringing your attention back whenever the mind starts to wander.','{1,6,11,4}');
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Life Coaching', true, 2, '$80', '2 hr', 'https://media.istockphoto.com/photos/multiracial-women-doing-yoga-exercise-with-social-distance-for-at-picture-id1308292203?b=1&k=20&m=1308292203&s=170667a&w=0&h=yd-8crp_tndLZ0tJXgYkPHzjbJHoJJnLS-NL6hHojnA=', 'Life Coaching need to be approachable, personable, friendly and helpful. They should be enthusiastic, empathic and have a sense of humour and patience.','{2,7,12,5}');

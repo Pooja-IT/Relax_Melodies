@@ -87,8 +87,6 @@ app.post('/login', async (req, res) => {
 
 //Create a user
 app.post("/register", async (req, res) => {
-
-  console.log(req.body);
   
   try {
 
@@ -142,8 +140,6 @@ app.get("/api/v1/sessions", async (req, res) => {
   try {
     const results = await db.query("SELECT * FROM yoga_session");
 
-    console.log(results.rows);
-
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -157,10 +153,27 @@ app.get("/api/v1/sessions", async (req, res) => {
   }
 });
 
+//gets all sessions
+app.get("/api/v1/center", async (req, res) => {
+
+  try {
+    const results = await db.query("SELECT * FROM yoga_center");
+
+    res.status(200).json({
+      status: "success",
+      results: results.rows.length,
+      data: {
+        YogaCenter: results.rows
+      }
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //get a certain session with id
 app.get("/api/v1/sessions/:id", async (req, res) => {
-  console.log(req.params.id);
-
   try {
     const results = await db.query("SELECT * FROM yoga_session WHERE id = $1", [req.params.id]);
     // SELECT * FROM yoga_session WHERE id = req.params.id
@@ -178,7 +191,6 @@ app.get("/api/v1/sessions/:id", async (req, res) => {
 
 // get a certain positions with id
 app.get("/api/v1/positions/:id", async (req, res) => {
-  console.log(req.params);
 
   try {
     const results = await db.query("SELECT * FROM yoga_position WHERE id = $1", [req.params.id]);
@@ -197,8 +209,7 @@ app.get("/api/v1/positions/:id", async (req, res) => {
 
 //Create a booking (book a session)
 app.post("/api/v1/booking/:id", async (req, res) => {
-  console.log(req.body);
-  
+
   try {
     const results = await db.query("INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES ($1, $2, $3, $4)", [
       req.body.user_id,
@@ -248,6 +259,60 @@ app.get("/privateRoute", authorization, async (req, res) => {
   }
 })
 
+app.get('/config', (req, res) => {
+  res.send({
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  });
+});
+
+app.post('/create-payment-intent', async (req, res) => {
+  const {paymentMethodType, currency} = req.body;
+
+  // Each payment method type has support for different currencies. In order to
+  // support many payment method types and several currencies, this server
+  // endpoint accepts both the payment method type and the currency as
+  // parameters.
+  //
+  // Some example payment method types include `card`, `ideal`, and `alipay`.
+  const params = {
+    payment_method_types: [paymentMethodType],
+    amount: 1999,
+    currency: currency,
+  }
+
+  // If this is for an ACSS payment, we add payment_method_options to create
+  // the Mandate.
+  if(paymentMethodType === 'acss_debit') {
+    params.payment_method_options = {
+      acss_debit: {
+        mandate_options: {
+          payment_schedule: 'sporadic',
+          transaction_type: 'personal',
+        },
+      },
+    }
+  }
+
+  // Create a PaymentIntent with the amount, currency, and a payment method type.
+  //
+  // See the documentation [0] for the full list of supported parameters.
+  //
+  // [0] https://stripe.com/docs/api/payment_intents/create
+  try {
+    const paymentIntent = await stripe.paymentIntents.create(params);
+
+    // Send publishable key and PaymentIntent details to client
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (e) {
+    return res.status(400).send({
+      error: {
+        message: e.message,
+      },
+    });
+  }
+});
 
 const port = process.env.PORT || 3008;
 app.listen(port, () => {
