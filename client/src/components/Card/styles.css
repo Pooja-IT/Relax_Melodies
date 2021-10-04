@@ -58,7 +58,7 @@ label {
   letter-spacing: 0.025em;
 }
 
-button {
+.button-blue {
   white-space: nowrap;
   border: 0;
   outline: 0;

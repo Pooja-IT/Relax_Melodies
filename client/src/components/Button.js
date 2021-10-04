@@ -3,7 +3,7 @@ import React from "react";
 export default function Button(props) {
 
 return (
-<button onClick={props.onClick}>
+<button className="button-blue" onClick={props.onClick}>
       {props.children}
 </button>
  );

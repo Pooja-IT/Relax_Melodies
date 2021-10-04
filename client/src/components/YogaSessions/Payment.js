@@ -24,7 +24,7 @@ export default function Payment(props) {
       <Link to={`/card`}>
             <div>
         {/* <Button>Pay Now</Button> */}
-        <button className="button-container">Pay Now</button>
+        <button className="payment-button-container">Pay Now</button>
         </div>  
         </Link>
   </div>
