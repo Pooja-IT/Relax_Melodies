@@ -23,9 +23,9 @@ INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (1, 2, '2021-1
 INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (4, 4, '2021-10-7', '11am');
 INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (5, 5, '2021-10-9', '9am');
 
-INSERT INTO yoga_center (name, address) VALUES (3, '3827 Overland Ave, Culver City, CA 90232, United States');
-INSERT INTO yoga_center (name, address) VALUES (3, '1914 S Bundy Dr, Los Angeles, CA 90025, United States');
-INSERT INTO yoga_center (name, address) VALUES (1, '10921 Wilshire Blvd, Los Angeles, CA 90024, United States');
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('For U Fitness', '3827 Overland Ave, Culver City, CA 90232, United States', 34.018021, -118.406517);
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('Running Straight', '1914 S Bundy Dr, Los Angeles, CA 90025, United States', 34.034962, -118.456161);
+INSERT INTO yoga_center (name, address, lat, lng) VALUES ('Flexie', '10921 Wilshire Blvd, Los Angeles, CA 90024, United States', 34.058900, -118.444870);
 
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Tema', true, 1, 60, 120, 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mollis convallis ligula, ac posuere ipsum. Proin faucibus suscipit elementum. Proin lacinia lectus at sem iaculis sollicitudin. Vivamus viverra ante sem, a lacinia purus ullamcorper id. Donec consequat nulla vel dui vehicula dapibus. Sed rhoncus feugiat commodo. Vivamus finibus ac mi vestibulum tincidunt. Suspendisse potenti.','{1,6,11,4}');
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Grey Sum', true, 2, 80, 60, 'https://media.istockphoto.com/photos/multiracial-women-doing-yoga-exercise-with-social-distance-for-at-picture-id1308292203?b=1&k=20&m=1308292203&s=170667a&w=0&h=yd-8crp_tndLZ0tJXgYkPHzjbJHoJJnLS-NL6hHojnA=', 'Nunc ac magna in turpis tincidunt semper ac eu ante. Donec faucibus aliquet sagittis. Phasellus eget fringilla neque. Nullam ut lacinia lorem. Donec pretium leo et dapibus cursus. Curabitur ut lorem eu magna cursus viverra sed quis libero. Vestibulum placerat velit in vehicula mattis. Duis eget sapien nec orci facilisis condimentum.','{2,7,12,5}');
