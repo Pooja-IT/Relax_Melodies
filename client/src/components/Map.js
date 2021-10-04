@@ -51,7 +51,7 @@ function MyComponent() {
   return (
     <div className="yoga">
     <LoadScript
-      googleMapsApiKey="AIzaSyA6iT8gjYi2x_wDX62tLY8Na1dfKZhuhgY"
+      googleMapsApiKey
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
