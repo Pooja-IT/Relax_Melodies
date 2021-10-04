@@ -125,8 +125,9 @@ const maxDate = new Date("12/31/2021 6:00 pm");
                 name="date"> 
                 </TimePickerComponent>
             </div>
-            <p>{inputs.date.toString()}</p>
+            {/* <p>{inputs.date.toString()}</p> */}
             {payContainer}
         </section>
+        
   </div>
 };

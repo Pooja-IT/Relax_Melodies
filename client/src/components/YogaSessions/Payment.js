@@ -35,10 +35,10 @@ export default function Payment(props) {
       <article className="pay-container">
         <h3 className="title">
             {props.name}
-            <p className-="duration">
+            <p className="durations">
         {props.duration}
         </p>
-        <p className="price">
+        <p className="prices">
         {props.price}
         </p>
         <p className="date">
