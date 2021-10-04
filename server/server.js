@@ -87,8 +87,6 @@ app.post('/login', async (req, res) => {
 
 //Create a user
 app.post("/register", async (req, res) => {
-
-  console.log(req.body);
   
   try {
 
@@ -142,8 +140,6 @@ app.get("/api/v1/sessions", async (req, res) => {
   try {
     const results = await db.query("SELECT * FROM yoga_session");
 
-    console.log(results.rows);
-
     res.status(200).json({
       status: "success",
       results: results.rows.length,
@@ -157,10 +153,27 @@ app.get("/api/v1/sessions", async (req, res) => {
   }
 });
 
+//gets all sessions
+app.get("/api/v1/center", async (req, res) => {
+
+  try {
+    const results = await db.query("SELECT * FROM yoga_center");
+
+    res.status(200).json({
+      status: "success",
+      results: results.rows.length,
+      data: {
+        YogaCenter: results.rows
+      }
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //get a certain session with id
 app.get("/api/v1/sessions/:id", async (req, res) => {
-  console.log(req.params.id);
-
   try {
     const results = await db.query("SELECT * FROM yoga_session WHERE id = $1", [req.params.id]);
     // SELECT * FROM yoga_session WHERE id = req.params.id
@@ -178,7 +191,6 @@ app.get("/api/v1/sessions/:id", async (req, res) => {
 
 // get a certain positions with id
 app.get("/api/v1/positions/:id", async (req, res) => {
-  console.log(req.params);
 
   try {
     const results = await db.query("SELECT * FROM yoga_position WHERE id = $1", [req.params.id]);
@@ -197,8 +209,7 @@ app.get("/api/v1/positions/:id", async (req, res) => {
 
 //Create a booking (book a session)
 app.post("/api/v1/booking/:id", async (req, res) => {
-  console.log(req.body);
-  
+
   try {
     const results = await db.query("INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES ($1, $2, $3, $4)", [
       req.body.user_id,

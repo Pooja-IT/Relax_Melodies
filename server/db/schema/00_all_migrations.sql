@@ -15,7 +15,9 @@ CREATE TABLE users(
 CREATE TABLE yoga_center(
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NULL,
-    address VARCHAR(255) NOT NULL
+    address VARCHAR(255) NOT NULL,
+    lat FLOAT NOT NULL,
+    lng FLOAT NOT NULL
 );
 
 CREATE TABLE yoga_session(
