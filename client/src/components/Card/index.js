@@ -9,16 +9,9 @@ import ElementDemos from "./ElementDemos";
 
 import SplitForm from "./SplitForm";
 
-import "./styles.css";
+import "../Card/styles.scss";
 
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
-// const Wrapper = (props) => (
-//   <Elements stripe={stripePromise}>
-//         <SplitForm {...props} />
-//       </Elements>
-// );
-
-
 const demos = [
   
   {
@@ -31,14 +24,12 @@ const demos = [
 
 const Card = () => {
   return (
+    <BrowserRouter>
       <Elements stripe={stripePromise}>
-        stripe notes
         <ElementDemos demos={demos} />
-      </Elements>
+        <SplitForm />
+      </Elements> 
+    </BrowserRouter>
   );
 };
-
-// const rootElement = document.getElementById("root");
-
-// ReactDOM.render(<App />, rootElement);
 export default Card;

@@ -6,6 +6,7 @@ import {
   CardCvcElement,
   CardExpiryElement
 } from "@stripe/react-stripe-js";
+import { Link } from "react-router-dom";
 
 // import useResponsiveFontSize from "./useResponsiveFontSize";
 
@@ -75,7 +76,7 @@ const SplitForm = () => {
             console.log("CardNumberElement [focus]");
           }}
         />
-      </label>
+      </label><br/>
       <label>
         Expiration date
         <CardExpiryElement
@@ -93,7 +94,7 @@ const SplitForm = () => {
             console.log("CardNumberElement [focus]");
           }}
         />
-      </label>
+      </label><br/>
       <label>
         CVC
         <CardCvcElement
@@ -111,10 +112,13 @@ const SplitForm = () => {
             console.log("CardNumberElement [focus]");
           }}
         />
-      </label>
+      </label><br/>
+      <Link to={`/current-booking`}>
       <button type="submit" disabled={!stripe}>
         Pay
-      </button>
+      </button> 
+        </Link>
+      
     </form>
   );
 };

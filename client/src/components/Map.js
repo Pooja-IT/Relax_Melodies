@@ -13,16 +13,38 @@ import {
 require('dotenv').config();
 
 
-export default function Map() {
-    return(
-<div id="map-container-google-2" className="z-depth-1-half map-container height: 500px">
-  <iframe title="map" width="100%" height="500%" src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0 border:0" allowfullscreen></iframe>
-</div>
+// export default function Map() {
+//   const [data,setData] = useState({
+//     center: []
+//   });
 
-    )
+//   const [selectedCenter, setSelectedCenter] = useState(null);
 
-function MyComponent() {
+//   const containerStyle = {
+//     width: '1500px',
+//     height: '200px'
+//   };
   
+//   const center = {
+//     lat: 34.04,
+//     lng: -118.45
+//   };
+  
+//   useEffect(() => { 
+//     axios.get("/api/v1/center")
+//     .then(function (response) {
+//      setData(prev => ({...prev,center: response.data.data.YogaCenter}))
+//     })    
+//   },[])
+
+//     return(
+// <div id="map-container-google-2" className="z-depth-1-half map-container height: 500px">
+//   <iframe title="map" width="100%" height="500%" src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0 border:0" allowfullscreen></iframe>
+// </div>
+
+//     )
+
+export default function MyComponent() {
   const [data,setData] = useState({
     center: []
   });
@@ -31,7 +53,7 @@ function MyComponent() {
 
   const containerStyle = {
     width: '1500px',
-    height: '200px'
+    height: '500px'
   };
   
   const center = {
@@ -48,7 +70,7 @@ function MyComponent() {
 
 
   return (
-    <div className="yoga">
+    <div>
     <LoadScript
       googleMapsApiKey
     >
@@ -116,4 +138,3 @@ function MyComponent() {
 
 // export default React.memo(MyComponent)
 
-}
