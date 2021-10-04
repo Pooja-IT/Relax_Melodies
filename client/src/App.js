@@ -13,7 +13,9 @@ import Footer from './components/Footer';
 import SessionDetails from './components/YogaSessions/SessionDetails';
 import Payment from './components/YogaSessions/Payment';
 // import SplitForm from './components/Card/SplitForm';
-import Card from './components/Card';
+// import Card from './components/Card';
+import UserBooking from './components/UserBooking';
+
 
 
 
@@ -52,7 +54,7 @@ const App = () => {
 
   useEffect(() => {
     isAuth()
-  },[])
+  })
 
 
   const {
@@ -83,10 +85,10 @@ return (<div className="App" >
       <Route exact path="/book-online" render={props => isAuthenticated ? <YogaSessions {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
       <Route path="/book-online/:id" render={props => isAuthenticated ? <SessionDetails {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
       <Route path="/payment" render={props => isAuthenticated ? <Payment {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-      {/* <Route path="/card" render={props => isAuthenticated ? <SplitForm {...props} setAuth={setAuth} /> : <Redirect to="/login" />} /> */}
-      <Route path="/card" render={props => isAuthenticated ? <Card {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+      {/* <Route path="/card" render={props => isAuthenticated ? <Card {...props} setAuth={setAuth} /> : <Redirect to="/login" />} /> */}
 
-      
+      <Route path="/current-booking" render={props => isAuthenticated ? <UserBooking {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+
     </Switch>
     <Footer />
   </Router> 

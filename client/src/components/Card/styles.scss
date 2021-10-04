@@ -37,11 +37,12 @@ html {
 
 .DemoWrapper {
   margin: 0 auto;
-  max-width: 500px;
+  margin-top: 10vh;
+  max-width: 300px;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 20vh;
 }
 
 .Demo {

@@ -54,14 +54,7 @@ const maxDate = new Date("12/31/2021 6:00 pm");
   
   let payContainer
   if (date !== "") {
-    
     payContainer = <Payment name={data.name} duration={data.duration} price={data.price} date={date.toString()} />
-    // <p>
-    //   {data.name}
-    //   {data.duration}
-    //   {data.price}
-    //   {date}
-    //   </p>
   } 
   
   
