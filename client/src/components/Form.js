@@ -1,37 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Form.scss";
-import { Link } from 'react-router-dom';
-// import DateRangePicker from 'react-bootstrap-daterangepicker';
-// import TimePicker from 'react-bootstrap-time-picker';
+import {DatePickerComponent} from "@syncfusion/ej2-react-calendars";
+import {TimePickerComponent} from "@syncfusion/ej2-react-calendars";
 
-export default function Form() {
+
+export default function Form(props) {
+    const[inputs,setInputs] = useState({
+        date: "",
+    });
+    const { date } = inputs;  const onChange = (e) => {
+        setInputs({...inputs, [e.target.name] : e.target.value })
+    }
+
+    const minDate = new Date("10/07/2021 9:00 am");
+    const maxDate = new Date("12/31/2021 6:00 pm");
 
     return(
         <section className="session-form">
-            <h4 className="name">Choose your Session</h4>
+            <h4 className="name">Choose your Date and Time:</h4>
             <form className="row g-3">
-                <div className="input-forms">
-                    <div className="single-form">
-                        <label for="email">Name:</label>
-                        <input class="form-control" type="text" name="text"  required />
-                    </div>
-                    <div className="single-form">
-                        <label for="mobile_number">Phone:</label>
-                        <input class="form-control" type="text" name="mobile_number"  required />
-                    </div>
-                 
-                    <div className="single-form">
-                        <label>Choose your Date:</label>
-                        <input class="date-form" type="date" name="date" min="2021-10-08" max="2021-10-30"/>
-                    </div>
-                </div>
-                {/* <TimePicker start="10:00" end="21:00" step={30} /> */}
-                    <div className="single-form">
-                    <Link to={`/payment`}>
-                        <input type="submit" className="button-container" value="Join now"/>
-                    </Link>
-                    </div>
-                
+            <div className="input-forms">
+                <DatePickerComponent placeholder="Select a Date"
+                value={date}
+                onChange={e => onChange(e)}
+                min={minDate}
+                max={maxDate}
+                name="date"
+                format="dd-MMM-yy"> 
+                </DatePickerComponent>   
+
+                <TimePickerComponent placeholder="Select a time"
+                value={date}
+                onChange={e => onChange(e)}
+                min={minDate}
+                max={maxDate}
+                name="date"> 
+                </TimePickerComponent>
+            </div>
+            {/* <p>{inputs.date.toString()}</p> */}
             </form>
         </section>
     )

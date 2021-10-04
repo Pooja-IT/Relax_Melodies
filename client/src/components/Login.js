@@ -57,11 +57,11 @@ export default function Login({setAuth}) {
                             <a href="/register" className="font" >Sign Up</a>
                         </span> 
                         <div className="form-group first">
-                          <label for="email"><b>Email:</b></label>
+                          <label><b>Email:</b></label>
                           <input name="email" type="text" value={email} onChange={(e) => onChange(e)} className="form-control" />
                         </div>
                         <div className="form-group last mb-4">
-                          <label for="password"><b>Password:</b></label>
+                          <label><b>Password:</b></label>
                           <input name="password" type="password" value={password} onChange={(e) => onChange(e)} className="form-control" />
                         </div>
                         <div>
