@@ -14,22 +14,23 @@ import {TimePickerComponent} from "@syncfusion/ej2-react-calendars";
 export default function SessionDetails() {
   const[inputs,setInputs] = useState({
     date: "",
+    time: ""
 });
-const { date } = inputs;
+  const { date, time } = inputs;
 
 
-const onChange = (e) => {
-    console.log(e)
+  const onChange = (e) => {
+      console.log(e)
 
-    setInputs({...inputs, [e.target.name] : e.target.value })
-    
-
-  }
+      setInputs({...inputs, [e.target.name] : e.target.value })
 
 
-// const date = new Date("10/07/2021 10:00 am");
-const minDate = new Date("10/07/2021 9:00 am");
-const maxDate = new Date("12/31/2021 6:00 pm");
+    }
+
+
+  // const date = new Date("10/07/2021 10:00 am");
+  const minDate = new Date("10/07/2021 9:00 am");
+  const maxDate = new Date("12/31/2021 6:00 pm");
 
   
   const {id}=useParams()
@@ -54,7 +55,7 @@ const maxDate = new Date("12/31/2021 6:00 pm");
   
   let payContainer
   if (date !== "") {
-    payContainer = <Payment name={data.name} duration={data.duration} price={data.price} date={date.toString()} />
+    payContainer = <Payment sessionId={id} name={data.name} duration={data.duration} price={data.price} date={date.toString()} time={time.toString()} />
   } 
   
   
@@ -118,7 +119,7 @@ const maxDate = new Date("12/31/2021 6:00 pm");
                 </DatePickerComponent>   
 
                 <TimePickerComponent placeholder="Select a time"
-                value={date}
+                value={time}
                 onChange={e => onChange(e)}
                 min={minDate}
                 max={maxDate}
