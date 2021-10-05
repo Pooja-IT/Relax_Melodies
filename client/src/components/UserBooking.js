@@ -68,37 +68,16 @@ export default function UserBooking() {
   return (
     <div>
     <h1 className="msg">Thanks! You're booked.</h1>
-  
-    
-    <img src="https://slidebazaar.com/wp-content/uploads/2020/07/thank-you-powerpoint-template-1.jpg" className="thankyou" alt="ThankYou"/>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>      
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-
-      <h1>Thank you</h1>
-
-
-
-
-      {sessions.sessions.map(session => (
-        <h5>
+    {sessions.sessions.map(session => (
+        <h5 className="booking">
         {session.name}
         {session.duration}
         {session.price}
         </h5>
       ))}
+  
+    <img src="https://slidebazaar.com/wp-content/uploads/2020/07/thank-you-powerpoint-template-1.jpg" className="thankyou" alt="ThankYou"/>
+
     </div>
   )
 };  
