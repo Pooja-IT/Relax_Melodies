@@ -54,9 +54,6 @@ const App = () => {
 
   useEffect(() => {
     isAuth()
-
-
-
   })
 
 
