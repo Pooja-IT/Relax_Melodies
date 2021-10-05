@@ -28,7 +28,7 @@ export default function Body() {
       <div className="service-image-container">
           <img src={element.picture} alt=""/>
       </div>
-      <h3 className="name">
+      <h3 className="name-service">
         {element.name}
       </h3>
       <p className="description">
