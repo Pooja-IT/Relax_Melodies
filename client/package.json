@@ -22,7 +22,11 @@
     "react-scripts": "4.0.3",
     "react-spring": "^9.2.5",
     "react-toastify": "^8.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "react-spring-3d-carousel": "1.2.1",
+    "3d-react-carousal": "^4.0.2",
+
+    "uuid": "3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
