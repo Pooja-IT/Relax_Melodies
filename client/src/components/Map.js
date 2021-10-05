@@ -72,9 +72,10 @@ export default function MyComponent() {
   return (
     <div>
     <LoadScript
-      // googleMapsApiKey="AIzaSyA6iT8gjYi2x_wDX62tLY8Na1dfKZhuhgY"
-      googleMapsApiKey="AIzaSyCx7Sq5vSJRXIBx2C8UFgYfmwFpVPFNzH0"
+      googleMapsApiKey="AIzaSyA6iT8gjYi2x_wDX62tLY8Na1dfKZhuhgY"
+      // googleMapsApiKey="AIzaSyCx7Sq5vSJRXIBx2C8UFgYfmwFpVPFNzH0"
 
+      // googleMapsApiKey
     >
       <GoogleMap
         mapContainerStyle={containerStyle}

@@ -1,20 +1,3 @@
-// export default function UserBooking() {
-//   return (
-//     <div>
-//     <h1>Thank You for the booking</h1>
-//     <h1>Thank You for the booking</h1>
-
-//     <h1>Thank You for the booking</h1>
-
-//     <h1>Thank You for the booking</h1>
-
-//     <h1>Thank You for the booking</h1>
-
-    
-
-//     </div>
-//   )
-// };
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -30,8 +13,6 @@ export default function UserBooking() {
 
   async function bookings() {
 
-    sessions.sessions = [];
-
     try {
       
       const response = await fetch("/privateRoute", {
@@ -43,7 +24,6 @@ export default function UserBooking() {
       
       axios.get(`/api/v1/booking/${parseRes.id}`)
       .then(response => {
-        console.log(response.data.data.bookings);
         setBooking(response.data.data.bookings)
         response.data.data.bookings.map(booking => (
           axios.get(`/api/v1/sessions/${booking.yoga_session_id}`)
@@ -56,7 +36,6 @@ export default function UserBooking() {
             sessions.sessions.push(response.data.data.YogaSession)
           })
         ))
-
         
       }) 
 
@@ -79,21 +58,18 @@ export default function UserBooking() {
 
   console.log(booking.data);
   console.log(sessions.sessions);
-
+  
   useEffect(() => {
     bookings()
   }, [])
 
   return (
     <div>
-  <h1>Thank You for the booking</h1>
-  <h1>Thank You for the booking</h1>
-
-    
-
       {sessions.sessions.map(session => (
         <h5>
-          {sessions}
+        {session.name}
+        {session.duration}
+        {session.price}
         </h5>
       ))}
     </div>
