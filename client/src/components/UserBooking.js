@@ -25,8 +25,8 @@ export default function UserBooking() {
       axios.get(`/api/v1/booking/${parseRes.id}`)
       .then(response => {
         setBooking(response.data.data.bookings)
-        response.data.data.bookings.map(booking => (
-          axios.get(`/api/v1/sessions/${booking.yoga_session_id}`)
+        response.data.data.bookings.forEach(user_id => (
+          axios.get(`/api/v1/sessions/${user_id.yoga_session_id}`)
           // .then(response => {
           //   this.setSessions(previousState => ({
           //     sessions: [...previousState.sessions, response.data.data.YogaSession]
@@ -65,6 +65,27 @@ export default function UserBooking() {
 
   return (
     <div>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>      
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+      <h1>Thank you</h1>
+
+      <h1>Thank you</h1>
+
+
+
+
       {sessions.sessions.map(session => (
         <h5>
         {session.name}
