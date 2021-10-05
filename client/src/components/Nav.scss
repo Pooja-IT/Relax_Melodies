@@ -25,6 +25,12 @@ body {
 .navbar-brand{
     font-size: bold;
     margin-left: 50px;
+
+}
+.navbar-brand img{
+    height: 10vmin;
+  pointer-events: none;
+//   padding-bottom: 2px;
 }
 
 .navbar-nav{
