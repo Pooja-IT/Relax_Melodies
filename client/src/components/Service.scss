@@ -1,3 +1,9 @@
+.article-container:hover {
+    box-shadow: 5px 10px 5px 10px;
+    color: grey;
+    border-top: solid;
+  }
+
 .service-image-container{
     padding-left: 20px;
     margin-left: 10px;
@@ -41,6 +47,7 @@
     justify-content: center; 
     margin-bottom: 50px;
     background-color: #b3e5f2;
+    margin-top: 50px;
     margin-left: 600px;
     margin-right: 600px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

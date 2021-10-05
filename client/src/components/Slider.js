@@ -1,47 +1,124 @@
-import React from "react";
-import Button from "./Button";
+import React, { useState } from "react";
+import Carousel from "react-spring-3d-carousel";
+import uuidv4 from "uuid";
+import { config } from "react-spring";
 
 export default function Slider() {
-    return(
-    <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-       
-        <div className="carousel-item active">
+  const [state, setState] = useState({
+    goToSlide: 0,
+    offsetRadius: 2,
+    showNavigation: true,
+    config: config.gentle
+  });
 
-          <img src="/images/wloga.jpg" className="d-block w-100" alt="Yoga"/>
-          <div className="carousel-caption d-none d-md-block">
-            <h2>Open Your Mind to Mindfulness</h2>
-            <Button onClick={ () => {console.log("Click on Subscribe")}}>Subscribe</Button>
-          </div>
-         
-        </div>
-        <div className="carousel-item">
-          <img src="/images/2.jpg" className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h2>Open Your Mind to Mindfulness</h2>
-            
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img src="/images/4.jpg" className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h2>Open Your Mind to Mindfulness</h2>
-        
-          </div>
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+  let slides = [
+    {
+      key: uuidv4(),
+      content: <img src="/images/wloga.jpg" alt="1" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/2.jpg" alt="2" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/yoo.jpg" alt="3" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/4.jpg" alt="4" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/5.jpg" alt="5" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/6.jpg" alt="6" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/7.jpg" alt="7" />
+    },
+    {
+      key: uuidv4(),
+      content: <img src="/images/yoga.jpg" alt="8" />
+    }
+  ].map((slide, index) => {
+    return { ...slide, onClick: () => setState({ goToSlide: index }) };
+  });
+
+  
+  let xDown = null;
+  let yDown = null;
+
+  const getTouches = (evt) => {
+    return (
+      evt.touches || evt.originalEvent.touches // browser API
+    ); // jQuery
+  };
+
+  const handleTouchStart = (evt) => {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+  };
+
+  const handleTouchMove = (evt) => {
+    if (!xDown || !yDown) {
+      return;
+    }
+
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      /*most significant*/
+      if (xDiff > 0) {
+        /* left swipe */
+        setState({ goToSlide: state.goToSlide + 1 });
+      } else {
+        /* right swipe */
+        setState({ goToSlide: state.goToSlide - 1 });
+      }
+    } else {
+      if (yDiff > 0) {
+        /* up swipe */
+      } else {
+        /* down swipe */
+      }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+  };
+
+  return (
+    <div
+      style={{ width: "80%", height: "500px", margin: "0 auto" }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+    >
+      <Carousel
+        slides={slides}
+        goToSlide={state.goToSlide}
+        offsetRadius={state.offsetRadius}
+        showNavigation={state.showNavigation}
+        animationConfig={state.config}
+      />
+      <div
+        style={{
+          margin: "0 auto",
+          marginTop: "2rem",
+          width: "50%",
+          display: "flex",
+          justifyContent: "space-around"
+        }}
+      >  
       </div>
     </div>
-    )
-}
-
-
-
-
+  );
+};
