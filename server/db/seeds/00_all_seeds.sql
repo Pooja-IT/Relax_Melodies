@@ -17,11 +17,6 @@ INSERT INTO yoga_position (name, video, description) VALUES ('Crow', '0Bx_r81zl2
 INSERT INTO yoga_position (name, video, description) VALUES ('Standing Forward Bend', 'Y78BjkuhH5o', 'This mobilizes the joints of the body and stretches the spine making it elastic. It increases the blood supply to the brain and invigorates the nervous system. The practice of Standing Forward Bend promotes perennial youth. Standing Forward Bend calms the brain and helps relieve stress. This pose also stimulates the liver and kidneys.');
 INSERT INTO yoga_position (name, video, description) VALUES ('Triangle', 'O4BWxNAJmJQ', 'The lateral stretch in Trikonansa keeps the spine elastic and promotes hip and leg flexibility. General circulation is invigorated, the liver and spleen are massaged and peristalsis of the digestive tract is increased. The posture encourages overall balance and stability while it strengthens the muscles of the lower body.');
 
-INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (3, 1, '2021-10-12', '2pm');
-INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (3, 2, '2021-10-14', '4pm');
-INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (1, 2, '2021-10-11', '1pm');
-INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (4, 4, '2021-10-7', '11am');
-INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES (5, 5, '2021-10-9', '9am');
 
 INSERT INTO yoga_center (name, address, lat, lng) VALUES ('For U Fitness', '3827 Overland Ave, Culver City, CA 90232, United States', 34.018021, -118.406517);
 INSERT INTO yoga_center (name, address, lat, lng) VALUES ('Running Straight', '1914 S Bundy Dr, Los Angeles, CA 90025, United States', 34.034962, -118.456161);
@@ -32,5 +27,9 @@ INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, p
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Yoga Sessions', false, 1, '$55', '1 hr', 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60', 'The ultimate goal of practicing yoga is to attain tranquility in the mind and spirit, and making this goal achievable by means of yoga poses and meditation.','{4,9,2,7}');
 INSERT INTO yoga_session (name, availability, yoga_center_id, price, duration, picture, description, yoga_positions) VALUES ('Meditation', true, 2, '$45', '2 hr', 'https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', 'Meditation, which is the practice of focused concentration, bringing yourself back to the moment over and over again, actually addresses stress, whether positive or negative.','{5,10,3,8}');
 
-
+INSERT INTO booking (user_id, yoga_session_id, date) VALUES (3, 1, 'Mon Oct 04 2021 12:30:00 GMT-0400 (Eastern Daylight Time)');
+INSERT INTO booking (user_id, yoga_session_id, date) VALUES (3, 2, 'Mon Oct 15 2021 11:00:00 GMT-0400 (Eastern Daylight Time)');
+INSERT INTO booking (user_id, yoga_session_id, date) VALUES (1, 2, 'Mon Oct 27 2021 11:00:00 GMT-0400 (Eastern Daylight Time)');
+INSERT INTO booking (user_id, yoga_session_id, date) VALUES (4, 4, 'Mon Oct 18 2021 11:00:00 GMT-0400 (Eastern Daylight Time)');
+INSERT INTO booking (user_id, yoga_session_id, date) VALUES (5, 1, 'Mon Oct 30 2021 11:00:00 GMT-0400 (Eastern Daylight Time)');
 

@@ -57,8 +57,7 @@ export default function Nav({ setAuth, isAuthenticated }) {
   return (
       <nav className="navbar navbar-expand-md navbar-dark bg-primary d-flex space-between">
       <a className="navbar-brand" href="/">
-        <img src= "" className="d-inline-block" alt="" />
-        Relax Melodies
+        <img src= "/images/logo.png" className="d-inline-block" alt="" />
       </a>
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <div className="navbar-nav">

@@ -206,16 +206,31 @@ app.get("/api/v1/positions/:id", async (req, res) => {
   }
 });
 
-
-//Create a booking (book a session)
-app.post("/api/v1/booking/:id", async (req, res) => {
+// all bookings for a user
+app.get("/api/v1/booking/:id", async (req, res) => {
 
   try {
-    const results = await db.query("INSERT INTO booking (user_id, yoga_session_id, date, time) VALUES ($1, $2, $3, $4)", [
+    const results = await db.query("SELECT * FROM booking WHERE user_id = $1", [req.params.id]);
+    res.status(200).json({
+      status: "success",
+      data: {
+        bookings: results.rows
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+  
+});
+
+//Create a booking (book a session)
+app.post("/api/v1/booking", async (req, res) => {
+
+  try {
+    const results = await db.query("INSERT INTO booking (user_id, yoga_session_id, date) VALUES ($1, $2, $3)", [
       req.body.user_id,
       req.body.yoga_session_id,
-      req.body.date,
-      req.body.time
+      req.body.date
     ]);
   } catch (error) {
     console.log(error);
@@ -250,8 +265,8 @@ app.get("/privateRoute", authorization, async (req, res) => {
     //req.user has payload
     //res.json(req.user);
 
-    const user = await db.query("SELECT name FROM users WHERE id = $1", [req.user]);
-
+    const user = await db.query("SELECT name, id FROM users WHERE id = $1", [req.user]);
+    console.log(user.rows[0]);
     res.json(user.rows[0]);
   } catch (error) {
     console.error(error);

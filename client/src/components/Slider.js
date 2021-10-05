@@ -14,7 +14,7 @@ export default function Slider() {
   let slides = [
     {
       key: uuidv4(),
-      content: <img src="/images/wloga.jpg" alt="1" />
+      content: <img src="/images/Relax.jpg" alt="1" />
     },
     {
       key: uuidv4(),

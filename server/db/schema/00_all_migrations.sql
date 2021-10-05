@@ -35,8 +35,7 @@ CREATE TABLE yoga_session(
 CREATE TABLE booking(
     user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     yoga_session_id INTEGER REFERENCES yoga_session(id) ON UPDATE CASCADE,
-    date DATE NOT NULL,
-    time VARCHAR(225) NOT NULL
+    date VARCHAR(225) NOT NULL
 );
 
 CREATE TABLE yoga_position(
