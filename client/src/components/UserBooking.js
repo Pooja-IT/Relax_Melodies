@@ -26,7 +26,7 @@ export default function UserBooking() {
       
       axios.get(`/api/v1/booking/${parseRes.id}`)
       .then(response => {
-        setBooking(response.data.data.bookings)
+        setBooking({data: response.data.data.bookings})
         response.data.data.bookings.forEach(user_id => (
           axios.get(`/api/v1/sessions/${user_id.yoga_session_id}`)
           // .then(response => {
