@@ -18,7 +18,7 @@ export default function Slider() {
     },
     {
       key: uuidv4(),
-      content: <img src="/images/2.jpg" alt="2" />
+      content: <img src="/images/wloga.jpg" alt="2" />
     },
     {
       key: uuidv4(),

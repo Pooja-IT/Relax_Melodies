@@ -72,8 +72,10 @@ export default function MyComponent() {
   return (
     <div>
     <LoadScript
-      // googleMapsApiKey="AIzaSyA6iT8gjYi2x_wDX62tLY8Na1dfKZhuhgY"
-      // googleMapsApiKey="AIzaSyCx7Sq5vSJRXIBx2C8UFgYfmwFpVPFNzH0"
+      // googleMapsApiKey = {process.env.REACT_APP_MAP_API_KEY}
+      // REACT_APP_MAP_API_KEY=AIzaSyA6iT8gjYi2x_wDX62tLY8Na1dfKZhuhgY
+      // googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}
+      googleMapsApiKey="AIzaSyCx7Sq5vSJRXIBx2C8UFgYfmwFpVPFNzH0"
 
       // googleMapsApiKey
     >

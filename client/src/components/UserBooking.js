@@ -1,3 +1,5 @@
+
+import "./UserBooking.scss";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -66,24 +68,17 @@ export default function UserBooking() {
 
   return (
     <div>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>      
-      <h1>Thank you</h1>
-      
-
-
-      {sessions.sessions.map(session => (
-        <h5>
-        {session.name}
-        {session.duration}
-        {session.price}
+  
+    {sessions.sessions.map(session => (
+        <h5 className="booking">
+          <p>{session.name}</p>
+          <p>{session.duration}</p>
+          <p>{session.price}</p>
         </h5>
       ))}
+  
+    <img src="https://slidebazaar.com/wp-content/uploads/2020/07/thank-you-powerpoint-template-1.jpg" className="thankyou" alt="ThankYou"/>
+
     </div>
   )
 };  

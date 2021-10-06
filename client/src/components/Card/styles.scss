@@ -4,7 +4,7 @@
 
 body,
 html {
-  background-color: #f6f9fc;
+  // background-color: #539be4;
   font-size: 18px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -15,7 +15,7 @@ html {
   font-family: "Source Code Pro", monospace;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 3px;
-  background: white;
+  background: rgb(12, 184, 215);
   margin: 24px 0 48px;
   width: 100%;
 }
@@ -23,12 +23,12 @@ html {
 .DemoPicker {
   font-size: 18px;
   border-radius: 3px;
-  background-color: white;
+  background-color: rgb(69, 226, 243);
   height: 48px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   border: 0;
   width: 100%;
-  color: #6772e5;
+  color: #1523bf;
   outline: none;
   background: transparent;
 
@@ -68,13 +68,13 @@ label {
   line-height: 40px;
   padding: 0 14px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  color: #fff;
+  color: rgb(39, 193, 232);
   border-radius: 4px;
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  background-color: #077083;
+  background-color: #438d9a;
   text-decoration: none;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
@@ -84,7 +84,7 @@ label {
 button:hover {
   color: #fff;
   cursor: pointer;
-  background-color: #7795f8;
+  background-color: #03292b;
   transform: translateY(-1px);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   

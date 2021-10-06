@@ -2,14 +2,16 @@
   margin: auto;
     position: relative;
 
+
   //  margin-top: 250px;
 
 
 }
 
 .container{
-    display: flex; 
-    justify-content: center;
+    // display: flex; 
+    // justify-content: center;
+    text-align: center;
     
     margin-bottom: 10px;
 }
@@ -18,17 +20,21 @@
   // padding-bottom: 30px;
   font-weight: bolder;
   padding-top: 20px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
 }
-.Email-container{
-  display: flex; 
-    justify-content: center;
-    margin-bottom: 10px;
-}
-.form-control {
-  margin-left: 50px;
-  // display: flex; 
-    // justify-content: center;
-    margin-bottom: 10px;
+// .Email-container{
+//   display: flex; 
+//     justify-content: center;
+//     margin-bottom: 10px;
+// }
+// .form-control {
+//   margin-left: 50px;
+//   // display: flex; 
+//     // justify-content: center;
+//     margin-bottom: 10px;
+// }
+.footer-subscribe > div {
+  display: flex;
+  justify-content: center;
 }
 
