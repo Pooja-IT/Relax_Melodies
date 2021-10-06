@@ -10,6 +10,7 @@
 .container{
     display: flex; 
     justify-content: center;
+    
     margin-bottom: 10px;
 }
 
@@ -17,6 +18,7 @@
   // padding-bottom: 30px;
   font-weight: bolder;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .Email-container{
   display: flex; 
@@ -26,6 +28,7 @@
 .form-control {
   margin-left: 50px;
   // display: flex; 
-    justify-content: center;
+    // justify-content: center;
     margin-bottom: 10px;
 }
+

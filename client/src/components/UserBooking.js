@@ -24,17 +24,18 @@ export default function UserBooking() {
       
       axios.get(`/api/v1/booking/${parseRes.id}`)
       .then(response => {
-        setBooking(response.data.data.bookings)
-        response.data.data.bookings.forEach(user_id => (
-          axios.get(`/api/v1/sessions/${user_id.yoga_session_id}`)
-          // .then(response => {
-          //   this.setSessions(previousState => ({
-          //     sessions: [...previousState.sessions, response.data.data.YogaSession]
-          // }));
-          // })
+        setBooking({data:response.data.data.bookings})
+        response.data.data.bookings.forEach(booking => (
+          axios.get(`/api/v1/sessions/${booking.yoga_session_id}`)
           .then(response => {
-            sessions.sessions.push(response.data.data.YogaSession)
+            setSessions(previousState => ({
+              sessions: [...previousState.sessions, response.data.data.YogaSession]
+          }));
           })
+          // .then(response => {
+          //   sessions.sessions.push(response.data.data.YogaSession)
+
+          // })
         ))
         
       }) 
@@ -73,17 +74,7 @@ export default function UserBooking() {
       <h1>Thank you</h1>
       <h1>Thank you</h1>      
       <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-      <h1>Thank you</h1>
-
-      <h1>Thank you</h1>
-
-
+      
 
 
       {sessions.sessions.map(session => (
