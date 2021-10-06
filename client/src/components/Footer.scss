@@ -1,40 +1,26 @@
 .footer{
   margin: auto;
     position: relative;
-
-
-  //  margin-top: 250px;
-
-
 }
 
 .container{
-    // display: flex; 
-    // justify-content: center;
     text-align: center;
-    
     margin-bottom: 10px;
 }
 
 .text-white{
-  // padding-bottom: 30px;
   font-weight: bolder;
   padding-top: 20px;
-  // padding-bottom: 20px;
 }
-// .Email-container{
-//   display: flex; 
-//     justify-content: center;
-//     margin-bottom: 10px;
-// }
-// .form-control {
-//   margin-left: 50px;
-//   // display: flex; 
-//     // justify-content: center;
-//     margin-bottom: 10px;
-// }
+
 .footer-subscribe > div {
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
+  width: 60%;
+  padding-bottom: 30px;
+  margin-left: 250px;
+
 }
+
 
