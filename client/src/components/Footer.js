@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 
