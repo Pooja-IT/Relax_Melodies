@@ -37,7 +37,6 @@ export default function Form(props) {
                 name="date"> 
                 </TimePickerComponent>
             </div>
-            {/* <p>{inputs.date.toString()}</p> */}
             </form>
         </section>
     )

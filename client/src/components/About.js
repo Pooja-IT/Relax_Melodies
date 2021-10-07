@@ -3,7 +3,6 @@ import "./About.scss";
 
 export default function About() {
     return(
-        
       <section>
         <h1 className="yoga">Welcome to Yoga Session</h1>
         <div className="about">
@@ -13,7 +12,5 @@ export default function About() {
           </p>
         </div>
       </section>
-   
-
     )
     }

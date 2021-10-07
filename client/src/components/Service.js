@@ -32,13 +32,13 @@ export default function Body() {
         {element.name}
       </h3>
       <p className="description">
-      {element.description}
+        {element.description}
       </p>
       <p className="duration">
-      {element.duration}
+        {element.duration}
       </p>
       <p className="price">
-      {element.price}
+        {element.price}
       </p>
     </article>
     ))}

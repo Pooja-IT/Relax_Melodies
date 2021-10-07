@@ -11,15 +11,10 @@ export default function Footer() {
     return(
         <footer className="footer bg-primary">
         <div className="container">
-          {/* <a className="navbar-brand" href="/">
-          <img src= "/images/logo.png" className="d-inline-block" alt="" />
-          </a> */}
             <p className="text-white">Sign up for inspiration, exclusive offers, contests and the inside scoop on events.</p>
-
-          <div className="footer-subscribe">
+        <div className="footer-subscribe">
           <MailchimpSubscribe url={MAILCHIMP_URL} />
-          </div>
-          
+        </div>
         </div>
       </footer>
     )
